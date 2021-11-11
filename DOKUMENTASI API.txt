@@ -1,0 +1,468 @@
+ALL NEED BEARER UNLESS AUTH
+req.header.authorization
+All use req.body except delete 
+=================================================
+SPP
+GET
+req:-
+res:
+[
+    {
+        "id_spp": 1,
+        "tahun": 2077,
+        "nominal": 100000,
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:34:45.000Z",
+        "updatedAt": "2021-10-22T03:34:45.000Z"
+    }
+]
+POST
+req:
+angkatan
+tahun
+nominal
+res:
+{
+    "message": "data has been inserted",
+    "data": {
+        "id_spp": 1,
+        "tahun": "2077",
+        "nominal": "100000",
+        "angkatan": "1",
+        "updatedAt": "2021-10-22T03:34:45.669Z",
+        "createdAt": "2021-10-22T03:34:45.669Z"
+    }
+}
+PUT
+req:
+id_spp
+angkatan
+tahun
+nominal
+res:
+{
+    "message": "data has been updated",
+    "data": {
+        "id_spp": 1,
+        "tahun": 2087,
+        "nominal": 100000,
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:34:45.000Z",
+        "updatedAt": "2021-10-22T03:37:29.000Z"
+    }
+}
+DELETE
+req:req.params.id_spp
+res:
+{
+    "message": "data has been deleted",
+    "data": {
+        "id_spp": 1,
+        "tahun": 2087,
+        "nominal": 100000,
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:34:45.000Z",
+        "updatedAt": "2021-10-22T03:37:29.000Z"
+    }
+}
+=================================================
+KELAS
+GET:
+req:-
+res:
+[
+    {
+        "id_kelas": 1,
+        "nama_kelas": "XII RPL 7",
+        "jurusan": "RPL",
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:45:57.000Z",
+        "updatedAt": "2021-10-22T03:45:57.000Z"
+    }
+]
+POST:
+req:
+nama_kelas
+jurusan
+angkatan
+res:
+{
+    "message": "data has been inserted",
+    "data": {
+        "id_kelas": 1,
+        "nama_kelas": "XII RPL 7",
+        "jurusan": "RPL",
+        "angkatan": "1",
+        "updatedAt": "2021-10-22T03:45:57.934Z",
+        "createdAt": "2021-10-22T03:45:57.934Z"
+    }
+}
+PUT:
+req:
+id_kelas
+nama_kelas
+jurusan
+angkatan
+res:
+{
+    "message": "data has been updated",
+    "data": {
+        "id_kelas": 1,
+        "nama_kelas": "XII RPL 1",
+        "jurusan": "RPL",
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:45:57.000Z",
+        "updatedAt": "2021-10-22T03:46:44.000Z"
+    }
+}
+DELETE
+req.params:req.params.id_kelas
+res:
+{
+    "message": "data has been deleted",
+    "data": {
+        "id_kelas": 1,
+        "nama_kelas": "XII RPL 1",
+        "jurusan": "RPL",
+        "angkatan": 1,
+        "createdAt": "2021-10-22T03:45:57.000Z",
+        "updatedAt": "2021-10-22T03:46:44.000Z"
+    }
+}
+=================================================
+SISWA
+GET:
+req:-
+res:
+[
+    {
+        "nisn": "1",
+        "nis": "1",
+        "nama": "Aqsyal",
+        "id_kelas": 2,
+        "alamat": "TJ",
+        "no_telp": "+62",
+        "id_spp": 2,
+        "image": "img-1634874943231.png",
+        "createdAt": "2021-10-22T03:54:45.000Z",
+        "updatedAt": "2021-10-22T03:55:43.000Z",
+        "kelas": {
+            "id_kelas": 2,
+            "nama_kelas": "XII RPL 1",
+            "jurusan": "RPL",
+            "angkatan": 1,
+            "createdAt": "2021-10-22T03:53:50.000Z",
+            "updatedAt": "2021-10-22T03:53:50.000Z"
+        },
+        "spp": {
+            "id_spp": 2,
+            "tahun": 2087,
+            "nominal": 100000,
+            "angkatan": 1,
+            "createdAt": "2021-10-22T03:45:49.000Z",
+            "updatedAt": "2021-10-22T03:45:49.000Z"
+        }
+    }
+]
+POST:
+req:
+nisn
+nis
+nama
+id_kelas
+alamat
+no_telp
+id_spp
+image
+res:
+{
+    "message": "data has been inserted",
+    "data": {
+        "nisn": "1",
+        "nis": "1",
+        "nama": "Aq",
+        "id_kelas": "2",
+        "alamat": "TJ",
+        "no_telp": "+62",
+        "id_spp": "2",
+        "image": "img-1634874885799.png",
+        "updatedAt": "2021-10-22T03:54:45.800Z",
+        "createdAt": "2021-10-22T03:54:45.800Z"
+    }
+}
+PUT:
+req:
+nisn
+nis
+nama
+id_kelas
+alamat
+no_telp
+id_spp
+image
+res:
+{
+    "message": "data has been updated",
+    "data": {
+        "nisn": "1",
+        "nis": "1",
+        "nama": "Aqsyal",
+        "id_kelas": 2,
+        "alamat": "TJ",
+        "no_telp": "+62",
+        "id_spp": 2,
+        "image": "img-1634874943231.png",
+        "createdAt": "2021-10-22T03:54:45.000Z",
+        "updatedAt": "2021-10-22T03:55:43.000Z"
+    }
+}
+DELETE
+req.params:req.params.nisn
+res:
+{
+    "message": "data has been deleted",
+    "data": {
+        "nisn": "1",
+        "nis": "1",
+        "nama": "Aqsyal",
+        "id_kelas": 2,
+        "alamat": "TJ",
+        "no_telp": "+62",
+        "id_spp": 2,
+        "image": "img-1634874943231.png",
+        "createdAt": "2021-10-22T03:54:45.000Z",
+        "updatedAt": "2021-10-22T03:55:43.000Z"
+    }
+}
+/auth
+req:
+nisn
+res:
+{
+    "logged": true,
+    "data": {
+        "nisn": "1",
+        "nis": "1",
+        "nama": "Aqsyal",
+        "id_kelas": 2,
+        "alamat": "TJ",
+        "no_telp": "+62",
+        "id_spp": 2,
+        "image": "img-1634874943231.png",
+        "createdAt": "2021-10-22T03:54:45.000Z",
+        "updatedAt": "2021-10-22T03:55:43.000Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJuaXNuIjoiMSIsIm5pcyI6IjEiLCJuYW1hIjoiQXFzeWFsIiwiaWRfa2VsYXMiOjIsImFsYW1hdCI6IlRKIiwibm9fdGVscCI6Iis2MiIsImlkX3NwcCI6MiwiaW1hZ2UiOiJpbWctMTYzNDg3NDk0MzIzMS5wbmciLCJjcmVhdGVkQXQiOiIyMDIxLTEwLTIyVDAzOjU0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIxLTEwLTIyVDAzOjU1OjQzLjAwMFoifQ.6svPfNM6zOA4gxj0pHsQrVfmu1FqlvJoVEm-eALJm3E"
+}
+=================================================
+PETUGAS
+GET:
+req:-
+res:
+[
+    {
+        "id_petugas": 1,
+        "username": "svar",
+        "password": "2357d55977387437566a7860325e23f4",
+        "nama_petugas": "Svartalheims",
+        "level": "admin",
+        "image": "img-1634874563318.png",
+        "createdAt": "2021-10-22T03:27:19.000Z",
+        "updatedAt": "2021-10-22T03:49:23.000Z"
+    }
+]
+POST:
+req:
+username
+password
+nama_petugas
+level
+image
+res:
+{
+    "message": "data has been inserted",
+    "data": {
+        "id_petugas": 1,
+        "username": "svar",
+        "password": "2357d55977387437566a7860325e23f4",
+        "nama_petugas": "Svartalheim",
+        "level": "admin",
+        "image": "img-1634873239740.png",
+        "updatedAt": "2021-10-22T03:27:19.753Z",
+        "createdAt": "2021-10-22T03:27:19.753Z"
+    }
+}
+PUT:
+req:
+id_petugas
+username
+password
+nama_petugas
+level
+image
+res:
+{
+    "message": "data has been updated",
+    "data": {
+        "id_petugas": 1,
+        "username": "svar",
+        "password": "2357d55977387437566a7860325e23f4",
+        "nama_petugas": "Svartalheims",
+        "level": "admin",
+        "image": "img-1634874563318.png",
+        "createdAt": "2021-10-22T03:27:19.000Z",
+        "updatedAt": "2021-10-22T03:49:23.000Z"
+    }
+}
+DELETE
+req.params: req.params.id_petugas
+res:
+{
+    "message": "data has been deleted",
+    "data": {
+        "id_petugas": 1,
+        "username": "svar",
+        "password": "2357d55977387437566a7860325e23f4",
+        "nama_petugas": "Svartalheims",
+        "level": "admin",
+        "image": "img-1634874563318.png",
+        "createdAt": "2021-10-22T03:27:19.000Z",
+        "updatedAt": "2021-10-22T03:49:23.000Z"
+    }
+}
+/auth:
+req:
+username
+password
+res:
+{
+    "logged": true,
+    "data": {
+        "id_petugas": 1,
+        "username": "svar",
+        "password": "2357d55977387437566a7860325e23f4",
+        "nama_petugas": "Svartalheim",
+        "level": "admin",
+        "image": "img-1634873239740.png",
+        "createdAt": "2021-10-22T03:27:19.000Z",
+        "updatedAt": "2021-10-22T03:27:19.000Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOiJpbWctMTYzNDg3MzIzOTc0MC5wbmciLCJjcmVhdGVkQXQiOiIyMDIxLTEwLTIyVDAzOjI3OjE5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIxLTEwLTIyVDAzOjI3OjE5LjAwMFoifQ.bk4cc9TVJDxfQkQEiyFTa0zFZeDWop5WVLuVXnGmsx4"
+}
+=================================================
+PEMBAYARAN
+GET:
+req:-
+res:
+[
+    {
+        "id_pembayaran": 2,
+        "id_petugas": 1,
+        "nisn": "1",
+        "tgl_bayar": "2021-10-22T00:00:00.000Z",
+        "bulan_dibayar": "1",
+        "tahun_dibayar": "1190",
+        "id_spp": 2,
+        "jumlah_bayar": 500000,
+        "createdAt": "2021-10-22T04:04:43.000Z",
+        "updatedAt": "2021-10-22T04:05:41.000Z",
+        "petugas": {
+            "id_petugas": 1,
+            "username": "svar",
+            "password": "2357d55977387437566a7860325e23f4",
+            "nama_petugas": "Svartalheims",
+            "level": "admin",
+            "image": "img-1634874563318.png",
+            "createdAt": "2021-10-22T03:27:19.000Z",
+            "updatedAt": "2021-10-22T03:49:23.000Z"
+        },
+        "siswa": {
+            "nisn": "1",
+            "nis": "1",
+            "nama": "Aqsyal",
+            "id_kelas": 2,
+            "alamat": "TJ",
+            "no_telp": "+62",
+            "id_spp": 2,
+            "image": "img-1634874943231.png",
+            "createdAt": "2021-10-22T03:54:45.000Z",
+            "updatedAt": "2021-10-22T03:55:43.000Z",
+            "spp": {
+                "id_spp": 2,
+                "tahun": 2087,
+                "nominal": 100000,
+                "angkatan": 1,
+                "createdAt": "2021-10-22T03:45:49.000Z",
+                "updatedAt": "2021-10-22T03:45:49.000Z"
+            }
+        }
+    }
+]
+POST:
+req:
+id_petugas
+nisn
+bulan_dibayar
+tahun_dibayar
+id_spp
+jumlah_bayar
+res:
+{
+    "message": "data has been inserted",
+    "data": {
+        "id_pembayaran": 2,
+        "id_petugas": "1",
+        "nisn": "1",
+        "tgl_bayar": "2021-10-22T00:00:00.000Z",
+        "bulan_dibayar": "1",
+        "tahun_dibayar": "2019",
+        "id_spp": "2",
+        "jumlah_bayar": "500000",
+        "updatedAt": "2021-10-22T04:04:43.139Z",
+        "createdAt": "2021-10-22T04:04:43.139Z"
+    }
+}
+PUT:
+req:
+id_pembayaran
+id_petugas
+nisn
+bulan_dibayar
+tahun_dibayar
+id_spp
+jumlah_bayar
+res:
+{
+    "message": "data has been updated",
+    "data": {
+        "id_pembayaran": 2,
+        "id_petugas": 1,
+        "nisn": "1",
+        "tgl_bayar": "2021-10-22T00:00:00.000Z",
+        "bulan_dibayar": "1",
+        "tahun_dibayar": "1190",
+        "id_spp": 2,
+        "jumlah_bayar": 500000,
+        "createdAt": "2021-10-22T04:04:43.000Z",
+        "updatedAt": "2021-10-22T04:05:41.000Z"
+    }
+}
+DELETE
+req.params:req.params.id_pembayaran
+res:
+{
+    "message": "data has been deleted",
+    "data": {
+        "id_pembayaran": 5,
+        "id_petugas": 1,
+        "nisn": "1",
+        "tgl_bayar": "2021-10-22T00:00:00.000Z",
+        "bulan_dibayar": "1",
+        "tahun_dibayar": "1190",
+        "id_spp": 2,
+        "jumlah_bayar": 500000,
+        "createdAt": "2021-10-22T04:08:31.000Z",
+        "updatedAt": "2021-10-22T04:08:31.000Z"
+    }
+}
+
