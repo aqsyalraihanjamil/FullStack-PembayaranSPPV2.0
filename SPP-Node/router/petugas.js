@@ -6,7 +6,6 @@ const md5 = require("md5")
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
 //multer 
 const multer = require("multer")
 const path = require("path")
@@ -26,6 +25,36 @@ const storage = multer.diskStorage({
   }
 })
 let upload = multer({ storage: storage })
+
+//x-www-form-urlencoded
+app.post("/auth", async (req, res) => {
+  let params = {
+    username: req.body.username,
+    password: md5(req.body.password)
+  }
+
+  let result = await petugas.findOne({ where: params })
+  if (result) {
+    let payload = JSON.stringify(result)
+    // generate token
+    let token = jwt.sign(payload, SECRET_KEY)
+    res.json({
+      logged: true,
+      data: result,
+      token: token
+    })
+  } else {
+    res.json({
+      logged: false,
+      message: "Invalid username or password"
+    })
+  }
+})
+
+
+const verify = require("./verify")
+app.use(verify)
+
 
 app.get("/", async (req, res) => {
   petugas.findAll()
@@ -57,7 +86,7 @@ app.post("/", upload.single("image"), async (req, res) => {
   }
   let data = {
     username: req.body.username,
-    password: md5(req.body.username),
+    password: md5(req.body.password),
     nama_petugas: req.body.nama_petugas,
     level: req.body.level,
     image: req.file.filename
@@ -120,6 +149,12 @@ app.put("/", upload.single("image"), async (req, res) => {
 app.delete("/:id_petugas", async (req, res) => {
   let param = { id_petugas: req.params.id_petugas }
   let resu = await petugas.findOne({ where: param })
+  //deleting the image in image folder
+  let oldFileName = resu.image
+
+  // delete old file
+  let dir = path.join(__dirname, "../image", oldFileName)
+  fs.unlink(dir, err => console.log(err))
   petugas.destroy({ where: param })
     .then(result => {
       res.json({
@@ -133,28 +168,6 @@ app.delete("/:id_petugas", async (req, res) => {
       })
     })
 })
-app.post("/auth", async (req, res) => {
-  let params = {
-    username: req.body.username,
-    password: md5(req.body.password)
-  }
 
-  let result = await petugas.findOne({ where: params })
-  if (result) {
-    let payload = JSON.stringify(result)
-    // generate token
-    let token = jwt.sign(payload, SECRET_KEY)
-    res.json({
-      logged: true,
-      data: result,
-      token: token
-    })
-  } else {
-    res.json({
-      logged: false,
-      message: "Invalid username or password"
-    })
-  }
-})
 
 module.exports = app

@@ -28,6 +28,33 @@ const storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
+//x-www-form-urlencoded
+app.post("/auth", async (req, res) => {
+  let params = {
+    nisn: req.body.nisn
+  }
+
+  let result = await siswa.findOne({ where: params })
+  if (result) {
+    let payload = JSON.stringify(result)
+    // generate token
+    let token = jwt.sign(payload, SECRET_KEY)
+    res.json({
+      logged: true,
+      data: result,
+      token: token
+    })
+  } else {
+    res.json({
+      logged: false,
+      message: "Invalid username or password"
+    })
+  }
+})
+
+const verify = require("./verify")
+app.use(verify)
+
 app.get("/",   async (req, res) => {
 
   let result = await siswa.findAll({
@@ -125,6 +152,12 @@ app.put("/",upload.single("image"), async (req, res) => {
 app.delete("/:nisn", async (req, res) => {
   let param = { nisn: req.params.nisn }
   let result = await siswa.findOne({ where: param })
+  //deleting the image in image folder
+  let oldFileName = result.image
+
+  // delete old file
+  let dir = path.join(__dirname, "../image", oldFileName)
+  fs.unlink(dir, err => console.log(err))
   siswa.destroy({ where: param })
     .then(resu => {
       res.json({
@@ -139,27 +172,6 @@ app.delete("/:nisn", async (req, res) => {
     })
 })
 
-app.post("/auth", async (req, res) => {
-  let params = {
-    nisn: req.body.nisn
-  }
 
-  let result = await siswa.findOne({ where: params })
-  if (result) {
-    let payload = JSON.stringify(result)
-    // generate token
-    let token = jwt.sign(payload, SECRET_KEY)
-    res.json({
-      logged: true,
-      data: result,
-      token: token
-    })
-  } else {
-    res.json({
-      logged: false,
-      message: "Invalid username or password"
-    })
-  }
-})
 
 module.exports = app

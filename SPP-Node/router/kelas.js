@@ -4,7 +4,8 @@ const kelas = models.kelas
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+const verify = require("./verify")
+app.use(verify)
 app.get("/", async (req, res) => {
   kelas.findAll()
     .then(kelas => {

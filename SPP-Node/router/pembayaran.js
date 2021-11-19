@@ -6,7 +6,8 @@ const spp = models.spp
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+const verify = require("./verify")
+app.use(verify)
 app.get("/", async (req, res) => {
   let result = await pembayaran.findAll({
     include: [
