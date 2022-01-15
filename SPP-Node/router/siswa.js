@@ -1,23 +1,23 @@
 const express = require("express")
 const models = require("../models/index")
 const siswa = models.siswa
-const spp = models.spp
 const kelas = models.kelas
-
+const spp = models.spp
+// const role = require("./role")
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-//multer 
-const multer = require("multer")
-const path = require("path")
-const fs = require("fs")
 
 //jwt
 const jwt = require("jsonwebtoken")
 const SECRET_KEY = "siswaSPP"
 
-// config storage image
+//multer
+const multer = require("multer")
+const path = require("path")
+const fs = require("fs")
+
+//storage for image
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./image")
@@ -44,6 +44,7 @@ app.post("/auth", async (req, res) => {
       data: result,
       token: token
     })
+    // role.role = "siswa";
   } else {
     res.json({
       logged: false,
@@ -52,10 +53,10 @@ app.post("/auth", async (req, res) => {
   }
 })
 
-const verify = require("./verify")
-app.use(verify)
+const { auth_verify, accessLimit } = require("./verify")
+app.use(auth_verify)
 
-app.get("/",   async (req, res) => {
+app.get("/", accessLimit(["admin"]), async (req, res) => {
 
   let result = await siswa.findAll({
     include: [
@@ -66,7 +67,7 @@ app.get("/",   async (req, res) => {
   res.json(result)
 })
 
-app.get("/:nisn",   async (req, res) => {
+app.get("/:nisn", accessLimit(["admin"]), async (req, res) => {
   let param = { nisn: req.params.nisn }
   let result = await siswa.findAll({
     where: param,
@@ -77,7 +78,9 @@ app.get("/:nisn",   async (req, res) => {
   })
   res.json(result)
 })
-app.post("/",upload.single("image"), async (req, res) => {
+
+app.post("/", accessLimit(["admin"]), upload.single("image"), async (req, res) => {
+
   if (!req.file) {
     res.json({
       message: "No uploaded file"
@@ -91,8 +94,26 @@ app.post("/",upload.single("image"), async (req, res) => {
     alamat: req.body.alamat,
     no_telp: req.body.no_telp,
     id_spp: req.body.id_spp,
-    image: req.file.filename
+    image: req.file.filename,
   }
+  let getSPP = async (id_kelas) => {
+    let angkatan = await kelas.findOne({ raw: true, where: { id_kelas: id_kelas } })
+    angkatan = angkatan.angkatan
+
+    let nominal = await spp.findOne({ raw: true, where: { angkatan: angkatan } })
+    return nominal.nominal
+  }
+  var now = new Date();
+  const oneJuly2021 = 1625072400000;
+  const referenceDay = Math.floor(oneJuly2021 / 8.64e7)
+  const today = Math.floor(now / 8.64e7)
+
+  const differenceMonth = Math.floor((today - referenceDay) / 30)
+  const biayaSPP = await getSPP(data.id_kelas)
+  const tunggakan = differenceMonth * biayaSPP
+
+  data.tunggakan = tunggakan
+
   siswa.create(data)
     .then(result => {
       res.json({
@@ -106,7 +127,7 @@ app.post("/",upload.single("image"), async (req, res) => {
       })
     })
 })
-app.put("/",upload.single("image"), async (req, res) => {
+app.put("/", accessLimit(["admin"]), upload.single("image"), async (req, res) => {
   let param = { nisn: req.body.nisn }
   let data = {
     nis: req.body.nis,
@@ -116,7 +137,7 @@ app.put("/",upload.single("image"), async (req, res) => {
     no_telp: req.body.no_telp,
     id_spp: req.body.id_spp,
   }
-  if(req.file) {
+  if (req.file) {
     // get data by id
     const row = await siswa.findOne({ where: param })
     let oldFileName = row.image
@@ -149,7 +170,7 @@ app.put("/",upload.single("image"), async (req, res) => {
       })
     })
 })
-app.delete("/:nisn", async (req, res) => {
+app.delete("/:nisn", accessLimit(["admin"]), async (req, res) => {
   let param = { nisn: req.params.nisn }
   let result = await siswa.findOne({ where: param })
   //deleting the image in image folder
@@ -160,6 +181,7 @@ app.delete("/:nisn", async (req, res) => {
   fs.unlink(dir, err => console.log(err))
   siswa.destroy({ where: param })
     .then(resu => {
+      
       res.json({
         message: "data has been deleted",
         data: result

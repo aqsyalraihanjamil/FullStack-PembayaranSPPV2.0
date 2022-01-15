@@ -1,0 +1,3257 @@
+{
+	"info": {
+		"_postman_id": "cedd9243-8516-4e24-b30e-ee28ce3b1def",
+		"name": "pembayaran_spp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "spp",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/spp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"spp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "spp",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/spp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"spp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10f-EmN3nGl+fSRpZWXdcCB8sn3rs00\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:33:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id_spp\": 1,\n        \"tahun\": 2021,\n        \"nominal\": 100000,\n        \"angkatan\": 30,\n        \"createdAt\": \"2022-01-15T07:29:38.000Z\",\n        \"updatedAt\": \"2022-01-15T07:29:38.000Z\"\n    },\n    {\n        \"id_spp\": 2,\n        \"tahun\": 2021,\n        \"nominal\": 100000,\n        \"angkatan\": 30,\n        \"createdAt\": \"2022-01-15T07:29:46.000Z\",\n        \"updatedAt\": \"2022-01-15T07:29:46.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "kelas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/kelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kelas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "kelas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/kelas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"kelas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12b-lxvsVAOeFlX6ferdib0V0M211zw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:03:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id_kelas\": 1,\n        \"nama_kelas\": \"XI TKJ 69\",\n        \"jurusan\": \"TKJ\",\n        \"angkatan\": 30,\n        \"createdAt\": \"2022-01-15T07:35:19.000Z\",\n        \"updatedAt\": \"2022-01-15T07:35:19.000Z\"\n    },\n    {\n        \"id_kelas\": 2,\n        \"nama_kelas\": \"XII RPL 1\",\n        \"jurusan\": \"RPL\",\n        \"angkatan\": 2077,\n        \"createdAt\": \"2022-01-15T07:35:47.000Z\",\n        \"updatedAt\": \"2022-01-15T07:35:47.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "siswa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/siswa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"siswa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "siswa",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/siswa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"siswa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1056"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"420-Jx5GWG7OmFCV8ynxUMkmsLLK888\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:07:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"nisn\": \"1\",\n        \"nis\": \"13\",\n        \"nama\": \"Joni\",\n        \"id_kelas\": 1,\n        \"alamat\": \"Jepun\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": 1,\n        \"image\": \"img-1642233872300.png\",\n        \"tunggakan\": 600000,\n        \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n        \"updatedAt\": \"2022-01-15T08:04:32.000Z\",\n        \"kelas\": {\n            \"id_kelas\": 1,\n            \"nama_kelas\": \"XI TKJ 69\",\n            \"jurusan\": \"TKJ\",\n            \"angkatan\": 30,\n            \"createdAt\": \"2022-01-15T07:35:19.000Z\",\n            \"updatedAt\": \"2022-01-15T07:35:19.000Z\"\n        },\n        \"spp\": {\n            \"id_spp\": 1,\n            \"tahun\": 2021,\n            \"nominal\": 100000,\n            \"angkatan\": 30,\n            \"createdAt\": \"2022-01-15T07:29:38.000Z\",\n            \"updatedAt\": \"2022-01-15T07:29:38.000Z\"\n        }\n    },\n    {\n        \"nisn\": \"2\",\n        \"nis\": \"12345\",\n        \"nama\": \"jotaro\",\n        \"id_kelas\": 1,\n        \"alamat\": \"Indonesianist\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": 1,\n        \"image\": \"img-1642233898637.png\",\n        \"tunggakan\": 600000,\n        \"createdAt\": \"2022-01-15T08:04:41.000Z\",\n        \"updatedAt\": \"2022-01-15T08:04:58.000Z\",\n        \"kelas\": {\n            \"id_kelas\": 1,\n            \"nama_kelas\": \"XI TKJ 69\",\n            \"jurusan\": \"TKJ\",\n            \"angkatan\": 30,\n            \"createdAt\": \"2022-01-15T07:35:19.000Z\",\n            \"updatedAt\": \"2022-01-15T07:35:19.000Z\"\n        },\n        \"spp\": {\n            \"id_spp\": 1,\n            \"tahun\": 2021,\n            \"nominal\": 100000,\n            \"angkatan\": 30,\n            \"createdAt\": \"2022-01-15T07:29:38.000Z\",\n            \"updatedAt\": \"2022-01-15T07:29:38.000Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "petugas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/petugas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"petugas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "petugas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/petugas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"petugas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "452"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c4-ZatJ6jh6BrEdMy2CHfl7Sg2dlhM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:09:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id_petugas\": 1,\n        \"username\": \"svar\",\n        \"password\": \"2357d55977387437566a7860325e23f4\",\n        \"nama_petugas\": \"Svartalheim\",\n        \"level\": \"admin\",\n        \"image\": null,\n        \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n        \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n    },\n    {\n        \"id_petugas\": 2,\n        \"username\": \"svars\",\n        \"password\": \"7037386950747b1cf06b089f6b19683e\",\n        \"nama_petugas\": \"Aqsyal\",\n        \"level\": \"petugas\",\n        \"image\": \"img-1642234121271.png\",\n        \"createdAt\": \"2022-01-15T08:06:59.000Z\",\n        \"updatedAt\": \"2022-01-15T08:08:41.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "pembayaran",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "tgl_bayar",
+									"value": "2020-10-04",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "bulan_dibayar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tahun_dibayar",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_bayar",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_pembayaran",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/pembayaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"pembayaran"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pembayaran",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/pembayaran",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"pembayaran"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1375"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55f-8nZas/lOyRPRXZFK6k2la8UVuVY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:15:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id_pembayaran\": 1,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"1\",\n        \"tahun_dibayar\": \"2021\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:11:50.000Z\",\n        \"updatedAt\": \"2022-01-15T08:11:50.000Z\",\n        \"petugas\": {\n            \"id_petugas\": 1,\n            \"username\": \"svar\",\n            \"password\": \"2357d55977387437566a7860325e23f4\",\n            \"nama_petugas\": \"Svartalheim\",\n            \"level\": \"admin\",\n            \"image\": null,\n            \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n            \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n        },\n        \"siswa\": {\n            \"nisn\": \"1\",\n            \"nis\": \"13\",\n            \"nama\": \"Joni\",\n            \"id_kelas\": 1,\n            \"alamat\": \"Jepun\",\n            \"no_telp\": \"+62\",\n            \"id_spp\": 1,\n            \"image\": \"img-1642233872300.png\",\n            \"tunggakan\": 200000,\n            \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n            \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n        }\n    },\n    {\n        \"id_pembayaran\": 2,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"7\",\n        \"tahun_dibayar\": \"2022\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:12:49.000Z\",\n        \"updatedAt\": \"2022-01-15T08:13:12.000Z\",\n        \"petugas\": {\n            \"id_petugas\": 1,\n            \"username\": \"svar\",\n            \"password\": \"2357d55977387437566a7860325e23f4\",\n            \"nama_petugas\": \"Svartalheim\",\n            \"level\": \"admin\",\n            \"image\": null,\n            \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n            \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n        },\n        \"siswa\": {\n            \"nisn\": \"1\",\n            \"nis\": \"13\",\n            \"nama\": \"Joni\",\n            \"id_kelas\": 1,\n            \"alamat\": \"Jepun\",\n            \"no_telp\": \"+62\",\n            \"id_spp\": 1,\n            \"image\": \"img-1642233872300.png\",\n            \"tunggakan\": 200000,\n            \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n            \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "pembayaran-nisn",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "tgl_bayar",
+									"value": "2020-10-04",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "bulan_dibayar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tahun_dibayar",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_bayar",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_pembayaran",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/pembayaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"pembayaran"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pembayaran-nisn",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nisn",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "tgl_bayar",
+											"value": "2020-10-04",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "bulan_dibayar",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tahun_dibayar",
+											"value": "2021",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "jumlah_bayar",
+											"value": "100000",
+											"type": "text"
+										},
+										{
+											"key": "id_pembayaran",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nisn",
+											"value": "354",
+											"type": "default",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/pembayaran/siswa/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"pembayaran",
+										"siswa",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1375"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55f-8nZas/lOyRPRXZFK6k2la8UVuVY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:16:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id_pembayaran\": 1,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"1\",\n        \"tahun_dibayar\": \"2021\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:11:50.000Z\",\n        \"updatedAt\": \"2022-01-15T08:11:50.000Z\",\n        \"petugas\": {\n            \"id_petugas\": 1,\n            \"username\": \"svar\",\n            \"password\": \"2357d55977387437566a7860325e23f4\",\n            \"nama_petugas\": \"Svartalheim\",\n            \"level\": \"admin\",\n            \"image\": null,\n            \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n            \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n        },\n        \"siswa\": {\n            \"nisn\": \"1\",\n            \"nis\": \"13\",\n            \"nama\": \"Joni\",\n            \"id_kelas\": 1,\n            \"alamat\": \"Jepun\",\n            \"no_telp\": \"+62\",\n            \"id_spp\": 1,\n            \"image\": \"img-1642233872300.png\",\n            \"tunggakan\": 200000,\n            \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n            \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n        }\n    },\n    {\n        \"id_pembayaran\": 2,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"7\",\n        \"tahun_dibayar\": \"2022\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:12:49.000Z\",\n        \"updatedAt\": \"2022-01-15T08:13:12.000Z\",\n        \"petugas\": {\n            \"id_petugas\": 1,\n            \"username\": \"svar\",\n            \"password\": \"2357d55977387437566a7860325e23f4\",\n            \"nama_petugas\": \"Svartalheim\",\n            \"level\": \"admin\",\n            \"image\": null,\n            \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n            \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n        },\n        \"siswa\": {\n            \"nisn\": \"1\",\n            \"nis\": \"13\",\n            \"nama\": \"Joni\",\n            \"id_kelas\": 1,\n            \"alamat\": \"Jepun\",\n            \"no_telp\": \"+62\",\n            \"id_spp\": 1,\n            \"image\": \"img-1642233872300.png\",\n            \"tunggakan\": 200000,\n            \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n            \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "spp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "angkatan",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "tahun",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "nominal",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/spp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"spp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "spp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "angkatan",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "tahun",
+											"value": "2021",
+											"type": "text"
+										},
+										{
+											"key": "nominal",
+											"value": "100000",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/spp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"spp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b8-+37c1pvP2yz+4Qs7vDdUaRMB6gQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:31:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been inserted\",\n    \"data\": {\n        \"id_spp\": 3,\n        \"tahun\": \"2021\",\n        \"nominal\": \"100000\",\n        \"angkatan\": \"30\",\n        \"updatedAt\": \"2022-01-15T07:31:54.888Z\",\n        \"createdAt\": \"2022-01-15T07:31:54.888Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "kelas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_kelas",
+									"value": "XII RPL 1",
+									"type": "default"
+								},
+								{
+									"key": "jurusan",
+									"value": "RPL",
+									"type": "default"
+								},
+								{
+									"key": "angkatan",
+									"value": "2077",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/kelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kelas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "kelas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nama_kelas",
+											"value": "XI TKJ 69",
+											"type": "default"
+										},
+										{
+											"key": "jurusan",
+											"value": "TKJ",
+											"type": "default"
+										},
+										{
+											"key": "angkatan",
+											"value": "30",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/kelas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"kelas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-TjaR9Grh6J3Sv8C5LGWNy4rvT8U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:35:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been inserted\",\n    \"data\": {\n        \"id_kelas\": 1,\n        \"nama_kelas\": \"XI TKJ 69\",\n        \"jurusan\": \"TKJ\",\n        \"angkatan\": \"30\",\n        \"updatedAt\": \"2022-01-15T07:35:19.329Z\",\n        \"createdAt\": \"2022-01-15T07:35:19.329Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "siswa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nisn",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "nis",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Segs",
+									"type": "text"
+								},
+								{
+									"key": "id_kelas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jepun",
+									"type": "text"
+								},
+								{
+									"key": "no_telp",
+									"value": "+62",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gboom/Pictures/sarkas1.png"
+								},
+								{
+									"key": "tunggakan",
+									"value": "0",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/siswa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"siswa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "siswa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nisn",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nis",
+											"value": "13",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "Segs",
+											"type": "text"
+										},
+										{
+											"key": "id_kelas",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "alamat",
+											"value": "Jepun",
+											"type": "text"
+										},
+										{
+											"key": "no_telp",
+											"value": "+62",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/gboom/Pictures/sarkas1.png"
+										},
+										{
+											"key": "tunggakan",
+											"value": "0",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/siswa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"siswa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10f-EipZsbKZjyLBYlzH3CV2o578GzI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:04:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been inserted\",\n    \"data\": {\n        \"nisn\": \"1\",\n        \"nis\": \"13\",\n        \"nama\": \"Segs\",\n        \"id_kelas\": \"1\",\n        \"alamat\": \"Jepun\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": \"1\",\n        \"image\": \"img-1642233872300.png\",\n        \"tunggakan\": 600000,\n        \"updatedAt\": \"2022-01-15T08:04:32.350Z\",\n        \"createdAt\": \"2022-01-15T08:04:32.350Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "petugas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "svaru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "svaru",
+									"type": "text"
+								},
+								{
+									"key": "nama_petugas",
+									"value": "Svartalheims",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "petugas",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Download Discord/pogowi.png"
+								},
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/petugas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"petugas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "petugas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "svars",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "svars",
+											"type": "text"
+										},
+										{
+											"key": "nama_petugas",
+											"value": "Svartalheims",
+											"type": "text"
+										},
+										{
+											"key": "level",
+											"value": "petugas",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Download Discord/pogowi.png"
+										},
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/petugas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"petugas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11b-VMaqZS9+CGxvr294cvzcOxTdc84\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:06:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been inserted\",\n    \"data\": {\n        \"id_petugas\": 2,\n        \"username\": \"svars\",\n        \"password\": \"7037386950747b1cf06b089f6b19683e\",\n        \"nama_petugas\": \"Svartalheims\",\n        \"level\": \"petugas\",\n        \"image\": \"img-1642234019840.png\",\n        \"updatedAt\": \"2022-01-15T08:06:59.870Z\",\n        \"createdAt\": \"2022-01-15T08:06:59.870Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "pembayaran",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tgl_bayar",
+									"value": "2020-10-04",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "bulan_dibayar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tahun_dibayar",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_bayar",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_pembayaran",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/pembayaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"pembayaran"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pembayaran",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nisn",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tgl_bayar",
+											"value": "2020-10-04",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "bulan_dibayar",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tahun_dibayar",
+											"value": "2021",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "jumlah_bayar",
+											"value": "100000",
+											"type": "text"
+										},
+										{
+											"key": "id_pembayaran",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nisn",
+											"value": "354",
+											"type": "default",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/pembayaran",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"pembayaran"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-flLt78Au1FBUdDdMS+vqV/ceHFU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:11:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been inserted\",\n    \"data\": {\n        \"id_pembayaran\": 1,\n        \"id_petugas\": \"1\",\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"1\",\n        \"tahun_dibayar\": \"2021\",\n        \"jumlah_bayar\": \"100000\",\n        \"updatedAt\": \"2022-01-15T08:11:50.216Z\",\n        \"createdAt\": \"2022-01-15T08:11:50.216Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "put",
+			"item": [
+				{
+					"name": "spp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "angkatan",
+									"value": "3099",
+									"type": "text"
+								},
+								{
+									"key": "tahun",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "nominal",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/spp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"spp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "spp",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "angkatan",
+											"value": "3099",
+											"type": "text"
+										},
+										{
+											"key": "tahun",
+											"value": "2021",
+											"type": "text"
+										},
+										{
+											"key": "nominal",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/spp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"spp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1-mfi+FNgexCW1SMMcTU420/2PFEU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:32:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been updated\",\n    \"data\": {\n        \"id_spp\": 3,\n        \"tahun\": 2021,\n        \"nominal\": 5000,\n        \"angkatan\": 3099,\n        \"createdAt\": \"2022-01-15T07:31:54.000Z\",\n        \"updatedAt\": \"2022-01-15T07:32:25.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "kelas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_kelas",
+									"value": "XV RPL 1",
+									"type": "default"
+								},
+								{
+									"key": "jurusan",
+									"value": "RPL",
+									"type": "default"
+								},
+								{
+									"key": "angkatan",
+									"value": "2077",
+									"type": "default"
+								},
+								{
+									"key": "id_kelas",
+									"value": "3",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/kelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kelas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "kelas",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nama_kelas",
+											"value": "XV RPL 1",
+											"type": "default"
+										},
+										{
+											"key": "jurusan",
+											"value": "RPL",
+											"type": "default"
+										},
+										{
+											"key": "angkatan",
+											"value": "2077",
+											"type": "default"
+										},
+										{
+											"key": "id_kelas",
+											"value": "3",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/kelas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"kelas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bf-cQj4s3LjVODmZba8Paf80glk0Q8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:36:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been updated\",\n    \"data\": {\n        \"id_kelas\": 3,\n        \"nama_kelas\": \"XV RPL 1\",\n        \"jurusan\": \"RPL\",\n        \"angkatan\": 2077,\n        \"createdAt\": \"2022-01-15T07:35:49.000Z\",\n        \"updatedAt\": \"2022-01-15T07:36:04.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "siswa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nisn",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nis",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "UWOHHHH SEEEGGGSSSS",
+									"type": "text"
+								},
+								{
+									"key": "id_kelas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Indonesianist",
+									"type": "text"
+								},
+								{
+									"key": "no_telp",
+									"value": "+62",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gboom/Pictures/sarkas1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/siswa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"siswa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "siswa",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nisn",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "nis",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "UWOHHHH SEEEGGGSSSS",
+											"type": "text"
+										},
+										{
+											"key": "id_kelas",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "alamat",
+											"value": "Indonesianist",
+											"type": "text"
+										},
+										{
+											"key": "no_telp",
+											"value": "+62",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/gboom/Pictures/sarkas1.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/siswa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"siswa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-ydjy5p7ZOhjWZkI9JRXWmFGNqWc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:04:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been updated\",\n    \"data\": {\n        \"nisn\": \"2\",\n        \"nis\": \"12345\",\n        \"nama\": \"UWOHHHH SEEEGGGSSSS\",\n        \"id_kelas\": 1,\n        \"alamat\": \"Indonesianist\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": 1,\n        \"image\": \"img-1642233898637.png\",\n        \"tunggakan\": 600000,\n        \"createdAt\": \"2022-01-15T08:04:41.000Z\",\n        \"updatedAt\": \"2022-01-15T08:04:58.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "petugas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "svars",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "svar",
+									"type": "text"
+								},
+								{
+									"key": "nama_petugas",
+									"value": "Aqsyal",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "petugas",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Download Discord/pogowi.png"
+								},
+								{
+									"key": "id_petugas",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/petugas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"petugas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "petugas",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "svars",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "svar",
+											"type": "text"
+										},
+										{
+											"key": "nama_petugas",
+											"value": "Aqsyal",
+											"type": "text"
+										},
+										{
+											"key": "level",
+											"value": "petugas",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Download Discord/pogowi.png"
+										},
+										{
+											"key": "id_petugas",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/petugas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"petugas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-UNbrS7zmILGtu4t2ViaucE0kKDk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:08:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been updated\",\n    \"data\": {\n        \"id_petugas\": 2,\n        \"username\": \"svars\",\n        \"password\": \"7037386950747b1cf06b089f6b19683e\",\n        \"nama_petugas\": \"Aqsyal\",\n        \"level\": \"petugas\",\n        \"image\": \"img-1642234121271.png\",\n        \"createdAt\": \"2022-01-15T08:06:59.000Z\",\n        \"updatedAt\": \"2022-01-15T08:08:41.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "pembayaran",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tgl_bayar",
+									"value": "2020-10-04",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "bulan_dibayar",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "tahun_dibayar",
+									"value": "2022",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "jumlah_bayar",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_pembayaran",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/pembayaran",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"pembayaran"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pembayaran",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nisn",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tgl_bayar",
+											"value": "2020-10-04",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "bulan_dibayar",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "tahun_dibayar",
+											"value": "2022",
+											"type": "text"
+										},
+										{
+											"key": "id_spp",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "jumlah_bayar",
+											"value": "100000",
+											"type": "text"
+										},
+										{
+											"key": "id_pembayaran",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "nisn",
+											"value": "354",
+											"type": "default",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/pembayaran",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"pembayaran"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "270"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10e-j9ZD0Yq7fpQUx6WCBPA6OIQErag\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:13:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been updated\",\n    \"data\": {\n        \"id_pembayaran\": 2,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"7\",\n        \"tahun_dibayar\": \"2022\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:12:49.000Z\",\n        \"updatedAt\": \"2022-01-15T08:13:12.000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "spp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/spp/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"spp",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "spp",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/spp/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"spp",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1-XS+p1C+rEWbOXnhLeCF/4bp2pZc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:33:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been deleted\",\n    \"data\": {\n        \"id_spp\": 3,\n        \"tahun\": 2021,\n        \"nominal\": 5000,\n        \"angkatan\": 3099,\n        \"createdAt\": \"2022-01-15T07:31:54.000Z\",\n        \"updatedAt\": \"2022-01-15T07:32:25.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "kelas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/kelas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kelas",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "kelas",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/kelas/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"kelas",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bf-sT9Jr88/yPjy1TPa3irHz6WcXjA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:36:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been deleted\",\n    \"data\": {\n        \"id_kelas\": 3,\n        \"nama_kelas\": \"XV RPL 1\",\n        \"jurusan\": \"RPL\",\n        \"angkatan\": 2077,\n        \"createdAt\": \"2022-01-15T07:35:49.000Z\",\n        \"updatedAt\": \"2022-01-15T07:36:04.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "siswa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/siswa/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"siswa",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "siswa",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/siswa/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"siswa",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-8XAnTLpHHuRG871K31TsYEsmZUU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:05:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been deleted\",\n    \"data\": {\n        \"nisn\": \"3\",\n        \"nis\": \"13\",\n        \"nama\": \"Segs\",\n        \"id_kelas\": 1,\n        \"alamat\": \"Jepun\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": 1,\n        \"image\": \"img-1642233883841.png\",\n        \"tunggakan\": 600000,\n        \"createdAt\": \"2022-01-15T08:04:43.000Z\",\n        \"updatedAt\": \"2022-01-15T08:04:43.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "petugas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/petugas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"petugas",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "petugas",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/petugas/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"petugas",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "282"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a-X+/mIVcQ8lNZ2i+Izg/STFeaA1U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:09:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been deleted\",\n    \"data\": {\n        \"id_petugas\": 3,\n        \"username\": \"svaru\",\n        \"password\": \"de0cc24970113e0fb68ed19f4081524c\",\n        \"nama_petugas\": \"Svartalheims\",\n        \"level\": \"petugas\",\n        \"image\": \"img-1642234037959.png\",\n        \"createdAt\": \"2022-01-15T08:07:17.000Z\",\n        \"updatedAt\": \"2022-01-15T08:07:17.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "pembayaran",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nisn",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "tgl_bayar",
+									"value": "2020-10-04",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "bulan_dibayar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tahun_dibayar",
+									"value": "2021",
+									"type": "text"
+								},
+								{
+									"key": "id_spp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_bayar",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "id_pembayaran",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/pembayaran/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"pembayaran",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pembayaran",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/pembayaran/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"pembayaran",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "270"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10e-RQtyUTGTGG7Z90BjOm5VdvXDnZA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:14:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"data has been deleted\",\n    \"data\": {\n        \"id_pembayaran\": 4,\n        \"id_petugas\": 1,\n        \"nisn\": \"1\",\n        \"tgl_bayar\": \"2022-01-15T00:00:00.000Z\",\n        \"bulan_dibayar\": \"1\",\n        \"tahun_dibayar\": \"2021\",\n        \"jumlah_bayar\": 100000,\n        \"createdAt\": \"2022-01-15T08:14:16.000Z\",\n        \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "siswa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6IlN2IiwicGFzc3dvcmQiOiJhc2QxMjMiLCJuYW1hX3BldHVnYXMiOiJBa3UiLCJsZXZlbCI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyMS0xMC0xM1QwMzo0Mzo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMS0xMC0xM1QwMzo0Mzo1OS4wMDBaIn0.4N63qKSh6yswNo9TKMkWKQH3VHw3CbMbuaOIFp5cSb4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "svar",
+									"value": "svar",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "nisn",
+									"value": "354",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/siswa/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"siswa",
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "siswa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nisn",
+											"value": "1",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/siswa/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"siswa",
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "620"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26c-j/pM5NRWzu76hu8/LoLMR21eCKc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 08:15:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"logged\": true,\n    \"data\": {\n        \"nisn\": \"1\",\n        \"nis\": \"13\",\n        \"nama\": \"Joni\",\n        \"id_kelas\": 1,\n        \"alamat\": \"Jepun\",\n        \"no_telp\": \"+62\",\n        \"id_spp\": 1,\n        \"image\": \"img-1642233872300.png\",\n        \"tunggakan\": 200000,\n        \"createdAt\": \"2022-01-15T08:04:32.000Z\",\n        \"updatedAt\": \"2022-01-15T08:14:16.000Z\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJuaXNuIjoiMSIsIm5pcyI6IjEzIiwibmFtYSI6IkpvbmkiLCJpZF9rZWxhcyI6MSwiYWxhbWF0IjoiSmVwdW4iLCJub190ZWxwIjoiKzYyIiwiaWRfc3BwIjoxLCJpbWFnZSI6ImltZy0xNjQyMjMzODcyMzAwLnBuZyIsInR1bmdnYWthbiI6MjAwMDAwLCJjcmVhdGVkQXQiOiIyMDIyLTAxLTE1VDA4OjA0OjMyLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTAxLTE1VDA4OjE0OjE2LjAwMFoifQ.2n6_tc2xj9giccVQ3-da5moCrYQThtThgzDpbtNJgpo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "petugas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "svar",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "svar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/petugas/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"petugas",
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "petugas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "svar",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "svar",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/petugas/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"petugas",
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "603"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25b-QCkgvKqAtGsUthd+fF13KXCQsiQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 07:26:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"logged\": true,\n    \"data\": {\n        \"id_petugas\": 1,\n        \"username\": \"svar\",\n        \"password\": \"2357d55977387437566a7860325e23f4\",\n        \"nama_petugas\": \"Svartalheim\",\n        \"level\": \"admin\",\n        \"image\": null,\n        \"createdAt\": \"2022-01-15T08:21:49.000Z\",\n        \"updatedAt\": \"2022-01-15T08:21:49.000Z\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZF9wZXR1Z2FzIjoxLCJ1c2VybmFtZSI6InN2YXIiLCJwYXNzd29yZCI6IjIzNTdkNTU5NzczODc0Mzc1NjZhNzg2MDMyNWUyM2Y0IiwibmFtYV9wZXR1Z2FzIjoiU3ZhcnRhbGhlaW0iLCJsZXZlbCI6ImFkbWluIiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDEtMTVUMDg6MjE6NDkuMDAwWiJ9.gN-J_OTxPf3sc6GRdD6gnArOwcXfJ9e97_eQ1gFvAWI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

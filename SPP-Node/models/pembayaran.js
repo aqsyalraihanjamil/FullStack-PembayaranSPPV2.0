@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
         as: "siswa"
       })
 
-      this.belongsTo(models.siswa,{
-        foreignKey: "id_spp",
-        // targetKey: "id_spp",
-        as:"spp"
-      })
+      // this.belongsTo(models.siswa,{
+      //   foreignKey: "id_spp",
+      //   // targetKey: "id_spp",
+      //   as:"spp"
+      // })
     }
   };
   pembayaran.init({
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     tgl_bayar: DataTypes.DATE,
     bulan_dibayar: DataTypes.STRING,
     tahun_dibayar: DataTypes.STRING,
-    id_spp: DataTypes.INTEGER,
+    // id_spp: DataTypes.INTEGER,
     jumlah_bayar: DataTypes.INTEGER
   }, {
     sequelize,

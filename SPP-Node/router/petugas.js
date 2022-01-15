@@ -2,18 +2,16 @@ const express = require("express")
 const models = require("../models/index")
 const petugas = models.petugas
 const md5 = require("md5")
+// const role = require("./role")
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
 //multer 
 const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
-
-//jwt
-const jwt = require("jsonwebtoken")
-const SECRET_KEY = "petugasSPP"
 
 // config storage image
 const storage = multer.diskStorage({
@@ -26,13 +24,16 @@ const storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
+//jwt
+const jwt = require("jsonwebtoken")
+const SECRET_KEY = "petugasSPP"
+
 //x-www-form-urlencoded
 app.post("/auth", async (req, res) => {
   let params = {
     username: req.body.username,
     password: md5(req.body.password)
   }
-
   let result = await petugas.findOne({ where: params })
   if (result) {
     let payload = JSON.stringify(result)
@@ -43,6 +44,7 @@ app.post("/auth", async (req, res) => {
       data: result,
       token: token
     })
+    // role.role = "petugas";
   } else {
     res.json({
       logged: false,
@@ -51,12 +53,11 @@ app.post("/auth", async (req, res) => {
   }
 })
 
+const { auth_verify, accessLimit } = require("./verify")
+app.use(auth_verify)
 
-const verify = require("./verify")
-app.use(verify)
 
-
-app.get("/", async (req, res) => {
+app.get("/", accessLimit(["admin", "petugas"]), async (req, res) => {
   petugas.findAll()
     .then(result => {
       res.json(result)
@@ -67,7 +68,7 @@ app.get("/", async (req, res) => {
       })
     })
 })
-app.get("/:id_petugas", async (req, res) => {
+app.get("/:id_petugas", accessLimit(["admin", "petugas"]), async (req, res) => {
   petugas.findOne({ where: { id_petugas: req.params.id_petugas } })
     .then(result => {
       res.json(result)
@@ -78,7 +79,7 @@ app.get("/:id_petugas", async (req, res) => {
       })
     })
 })
-app.post("/", upload.single("image"), async (req, res) => {
+app.post("/", accessLimit(["admin"]), upload.single("image"), async (req, res) => {
   if (!req.file) {
     res.json({
       message: "No uploaded file"
@@ -104,7 +105,7 @@ app.post("/", upload.single("image"), async (req, res) => {
       })
     })
 })
-app.put("/", upload.single("image"), async (req, res) => {
+app.put("/", accessLimit(["admin"]), upload.single("image"), async (req, res) => {
   let param = { id_petugas: req.body.id_petugas }
   let data = {
     username: req.body.username,
@@ -112,7 +113,7 @@ app.put("/", upload.single("image"), async (req, res) => {
     nama_petugas: req.body.nama_petugas,
     level: req.body.level,
   }
-  if(req.file) {
+  if (req.file) {
     // get data by id
     const row = await petugas.findOne({ where: param })
     let oldFileName = row.image
@@ -126,7 +127,7 @@ app.put("/", upload.single("image"), async (req, res) => {
   }
 
   petugas.update(data, { where: param })
-    .then((result) => {
+    .then(() => {
       petugas.findOne({ where: param })
         .then(resu => {
           res.json({
@@ -146,7 +147,7 @@ app.put("/", upload.single("image"), async (req, res) => {
       })
     })
 })
-app.delete("/:id_petugas", async (req, res) => {
+app.delete("/:id_petugas", accessLimit(["admin"]), async (req, res) => {
   let param = { id_petugas: req.params.id_petugas }
   let resu = await petugas.findOne({ where: param })
   //deleting the image in image folder
@@ -156,7 +157,7 @@ app.delete("/:id_petugas", async (req, res) => {
   let dir = path.join(__dirname, "../image", oldFileName)
   fs.unlink(dir, err => console.log(err))
   petugas.destroy({ where: param })
-    .then(result => {
+    .then(() => {
       res.json({
         message: "data has been deleted",
         data: resu

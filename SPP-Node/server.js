@@ -8,14 +8,13 @@ const siswa = require("./router/siswa")
 const kelas = require("./router/kelas")
 const petugas = require("./router/petugas")
 const pembayaran = require("./router/pembayaran")
-
+const schedule = require("./handlers/scheduler")
 
 app.use("/api/v1/spp", spp)
 app.use("/api/v1/siswa", siswa)
 app.use("/api/v1/kelas", kelas)
 app.use("/api/v1/petugas", petugas)
-app.use("/api/v1/pembayaran", pembayaran)
-
+app.use("/api/v1/pembayaran", pembayaran) 
 app.use(express.static(__dirname))
 
 app.listen(8000, () => {

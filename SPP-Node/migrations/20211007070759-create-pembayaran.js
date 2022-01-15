@@ -31,13 +31,13 @@ module.exports = {
       tahun_dibayar: {
         type: Sequelize.STRING
       },
-      id_spp: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "siswa",
-          key: "id_spp"
-        }
-      },
+      // id_spp: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "siswa",
+      //     key: "id_spp"
+      //   }
+      // },
       jumlah_bayar: {
         type: Sequelize.INTEGER
       },

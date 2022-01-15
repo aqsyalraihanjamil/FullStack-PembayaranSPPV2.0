@@ -4,16 +4,19 @@ const spp = models.spp
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+// const role = require("./role")
+const { auth_verify, accessLimit } = require("./verify")
+app.use(auth_verify)
 
-const verify = require("./verify")
-app.use(verify)
 
 
-
-app.get("/", async (req, res) => {
+app.get("/", accessLimit(["admin"]), async (req, res) => {
   spp.findAll()
     .then(spp => {
-      res.json(spp)
+      res.json(
+        spp
+      )
+      // console.log(role.role)
     })
     .catch(error => {
       res.json({
@@ -21,7 +24,7 @@ app.get("/", async (req, res) => {
       })
     })
 })
-app.get("/:id_spp", async (req, res) => {
+app.get("/:id_spp", accessLimit(["admin"]), async (req, res) => {
   spp.findOne({ where: { id_spp: req.params.id_spp } })
     .then(spp => {
       res.json(spp)
@@ -32,7 +35,7 @@ app.get("/:id_spp", async (req, res) => {
       })
     })
 })
-app.post("/", async (req, res) => {
+app.post("/", accessLimit(["admin"]), async (req, res) => {
   let data = {
     tahun: req.body.tahun,
     nominal: req.body.nominal,
@@ -51,7 +54,7 @@ app.post("/", async (req, res) => {
       })
     })
 })
-app.put("/", async (req, res) => {
+app.put("/", accessLimit(["admin"]), async (req, res) => {
   let param = { id_spp: req.body.id_spp }
   let data = {
     tahun: req.body.tahun,
@@ -79,7 +82,7 @@ app.put("/", async (req, res) => {
       })
     })
 })
-app.delete("/:id_spp", async (req, res) => {
+app.delete("/:id_spp", accessLimit(["admin"]), async (req, res) => {
   let param = { id_spp: req.params.id_spp }
   let resu = await spp.findOne({ where: param })
   spp.destroy({ where: param })

@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     no_telp: DataTypes.STRING,
     id_spp: DataTypes.INTEGER,
     image: DataTypes.STRING,
+    tunggakan: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'siswa',

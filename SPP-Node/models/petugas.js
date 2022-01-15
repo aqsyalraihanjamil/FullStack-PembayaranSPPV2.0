@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false,
     },
-    username: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
     password: DataTypes.STRING,
     nama_petugas: DataTypes.STRING,
     level: DataTypes.ENUM('admin', 'petugas'),

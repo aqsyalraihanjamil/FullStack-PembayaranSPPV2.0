@@ -30,11 +30,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "spp",
-          key: "id_spp"
-        }
+          key: "id_spp",
+        },
       },
       image: {
         type: Sequelize.STRING
+      },
+      tunggakan: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

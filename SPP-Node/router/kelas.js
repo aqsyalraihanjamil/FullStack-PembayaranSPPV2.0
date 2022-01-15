@@ -4,9 +4,9 @@ const kelas = models.kelas
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-const verify = require("./verify")
-app.use(verify)
-app.get("/", async (req, res) => {
+const { auth_verify, accessLimit } = require("./verify")
+app.use(auth_verify)
+app.get("/", accessLimit(["admin"]), async (req, res) => {
   kelas.findAll()
     .then(kelas => {
       res.json(kelas)
@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
       })
     })
 })
-app.get("/:id_kelas", async (req, res) => {
+app.get("/:id_kelas", accessLimit(["admin"]), async (req, res) => {
   kelas.findOne({ where: { id_kelas: req.params.id_kelas } })
     .then(kelas => {
       res.json(kelas)
@@ -28,7 +28,7 @@ app.get("/:id_kelas", async (req, res) => {
       })
     })
 })
-app.post("/", async (req, res) => {
+app.post("/", accessLimit(["admin"]), async (req, res) => {
   let data = {
     nama_kelas: req.body.nama_kelas,
     jurusan: req.body.jurusan,
@@ -48,7 +48,7 @@ app.post("/", async (req, res) => {
       })
     })
 })
-app.put("/", async (req, res) => {
+app.put("/", accessLimit(["admin"]), async (req, res) => {
   let param = { id_kelas: req.body.id_kelas }
   let data = {
     nama_kelas: req.body.nama_kelas,
@@ -76,7 +76,7 @@ app.put("/", async (req, res) => {
       })
     })
 })
-app.delete("/:id_kelas", async (req, res) => {
+app.delete("/:id_kelas", accessLimit(["admin"]), async (req, res) => {
   let param = { id_kelas: req.params.id_kelas }
   let resu = await kelas.findOne({ where: param })
   kelas.destroy({ where: param })
