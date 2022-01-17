@@ -15,14 +15,13 @@ let getSPP = async (id_kelas) => {
 }
 
 const perbulan = '0 0 1 * *';
-var sch = schedule.scheduleJob(perbulan, async () => {
+var sch = schedule.scheduleJob(perbulan, async function() {
   const data = await models.siswa.findAll({raw: true});
-
   data.map(async (item) => {
     const biayaSPP = await getSPP(item.id_kelas);
-    const tunggakan_baru = biayaSPP + item.sisa_tunggakan;
-    models.siswa.update({sisa_tunggakan: tunggakan_baru}, {where: {nisn: item.nisn}});
+    //const tunggakan_baru = biayaSPP + item.tunggakan;
+    models.siswa.update({tunggakan: (biayaSPP + item.tunggakan)}, {where: {nisn: item.nisn}});
   })
-
-}); 
+});
+console.log("Automated is running")
 module.exports = sch

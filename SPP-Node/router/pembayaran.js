@@ -13,11 +13,11 @@ app.get("/",accessLimit(["admin","petugas"]), async (req, res) => {
     include: [
       "petugas",
       "siswa",
-      // {
-      //   model: siswa,
-      //   as: "siswa",
-      //   include: ["spp"]
-      // }
+      {
+        model: siswa,
+        as: "siswa",
+        include: ["spp"]
+      }
     ]
   })
   res.json(result)
@@ -29,11 +29,11 @@ app.get("/:id_pembayaran", accessLimit(["admin","petugas"]), async (req, res) =>
     include: [
       "petugas",
       "siswa",
-      // {
-      //   model: siswa,
-      //   as: "siswa",
-      //   include: ["spp"]
-      // }
+      {
+        model: siswa,
+        as: "siswa",
+        include: ["spp"]
+      }
     ]
   })
   res.json(result)
@@ -45,11 +45,11 @@ app.get("/siswa/:nisn", async (req,res) => {
       include: [
           "petugas",
           "siswa",
-          // {
-          //     model: siswa,
-          //     as: "siswa",
-          //     include: ["spp"]
-          // }
+          {
+              model: siswa,
+              as: "siswa",
+              include: ["spp"]
+          }
       ]
   })
   res.json(result)
