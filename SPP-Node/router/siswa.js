@@ -56,7 +56,7 @@ app.post("/auth", async (req, res) => {
 const { auth_verify, accessLimit } = require("./verify")
 app.use(auth_verify)
 
-app.get("/", accessLimit(["admin"]), async (req, res) => {
+app.get("/", accessLimit(["admin", "petugas"]), async (req, res) => {
 
   let result = await siswa.findAll({
     include: [
