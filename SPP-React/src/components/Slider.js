@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { SliderData } from './SliderData'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-import {ReactComponent as YourSvg1 } from "../assets/Document.svg"
-import {ReactComponent as YourSvg0 } from "../assets/Folder.svg"
-import {ReactComponent as YourSvg2 } from "../assets/Shield.svg"
+import {ReactComponent as YourSvg1 } from "../assets/login/Graph.svg"
+import {ReactComponent as YourSvg0 } from "../assets/login/Folder.svg"
+import {ReactComponent as YourSvg2 } from "../assets/login/Shield.svg"
  
 const Slider = ({ slides }) => {
   const [current, setCurrent] = useState(0)

@@ -33,15 +33,15 @@ export default class Register extends Component {
                     </h2>
                   </div>
                   <div className="items-center justify-center mx-8">
-                  <form class="mt-8 space-y-3" action="#" method="POST" onSubmit={ev => (this.Login(ev))}>
+                  <form class="mt-8 space-y-3" method="POST" onSubmit={ev => (this.Register(ev))}>
                   <div className="rounded-md shadow-sm -space-y-px">
                         <div>
                           <label for="username-address" class="sr-only">Username</label>
-                          <input value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} id="username-address" name="Username" type="text" autocomplete="username" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
+                          <input value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} name="Username" type="text" autocomplete="username" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
                         </div>
                         <div>
                           <label for="password" class="sr-only">Password</label>
-                          <input value={this.state.password} onChange={ev => this.setState({password: ev.target.value})} autoComplete="false" id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
+                          <input value={this.state.password} onChange={ev => this.setState({password: ev.target.value})}id="password" name="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
                         </div>
                       </div>
                     <div>

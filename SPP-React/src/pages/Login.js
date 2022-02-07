@@ -35,46 +35,55 @@ export default class Login extends Component {
             localStorage.setItem("admin", JSON.stringify(admin))
             localStorage.setItem("token", token)
             localStorage.setItem("level", level)
+            localStorage.setItem("role", this.state.as)
             this.props.history.push("/")
           } else {
             this.setState({ message: response.data.message })
           }
         })
         .catch(error => console.log(error))
-    }else if(this.state.as === "siswa"){
-      Login = event => {
-        event.preventDefault();
-        let sendData = {
-          username: this.state.username,
-          password: this.state.password
-        }
-        let url = base_url + "/siswa/auth"
-        axios.post(url, sendData)
-          .then(response => {
-            this.setState({ logged: response.data.logged })
-            if (this.state.logged) {
-              let siswa = response.data.data
-              let token = response.data.token
-              localStorage.setItem("siswa", JSON.stringify(siswa))
-              localStorage.setItem("token", token)
-              this.props.history.push("/")
-            } else {
-              this.setState({ message: response.data.message })
-            }
-          })
-          .catch(error => console.log(error))
+    } else if (this.state.as === "siswa") {
+
+      let sendData = {
+        nisn: this.state.nisn
       }
+      let url = base_url + "/siswa/auth"
+      axios.post(url, sendData)
+        .then(response => {
+          this.setState({ logged: response.data.logged })
+          if (this.state.logged) {
+            let siswa = response.data.data
+            let token = response.data.token
+            localStorage.setItem("siswa", JSON.stringify(siswa))
+            localStorage.setItem("token", token)
+            this.props.history.push("/")
+          } else {
+            this.setState({ message: response.data.message })
+          }
+        })
+        .catch(error => console.log(error))
     }
   }
+
   render() {
     return (
       <div>
-        <div className="flex  justify-center items-center w-screen h-screen bg-gray-300 ">
+        {!this.state.logged ? (
+          <div class=" border-l-4 border-orange-500 text-white font-body absolute w-full justify-center items-center flex p-4" role="alert">
+            <div className='bg-purple-light w-2/3 p-4'>
+              <p class="font-bold">Error</p>
+              <p>{this.state.message}</p>
+            </div>
+          </div>
+        ) : null}
+        <div className="flex  justify-center items-center w-screen h-screen bg-gray-300">
+
           <div className="flex flex-row h-3/4 w-2/3 shadow-lg rounded-xl bg-gray-100">
             <div className=" flex flex-col items-center w-1/2">
-              <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+              <div class="min-h-full w-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-md w-full space-y-6">
                   <div>
+
                     <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
                     <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                       Sign in to your account
@@ -82,11 +91,11 @@ export default class Login extends Component {
                     <p class="mt-2 text-center text-sm text-gray-600">
                       Or
                     </p>
-                    <div className="text-center">
+                    {/* <div className="text-center">
                       <a href="/register" className="font-medium text-indigo-600  hover:text-indigo-500">
                         Start making your account!
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="text-center">
                     <p className="text-gray-800 text-base">Login Sebagai </p>
@@ -107,11 +116,11 @@ export default class Login extends Component {
                       <div className="rounded-md shadow-sm -space-y-px">
                         <div>
                           <label for="username-address" class="sr-only">Username</label>
-                          <input value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} id="username-address" name="Username" type="text" autocomplete="username" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
+                          <input value={this.state.username} onChange={ev => this.setState({ username: ev.target.value })} id="username-address" name="Username" type="text" autocomplete="username" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
                         </div>
                         <div>
                           <label for="password" class="sr-only">Password</label>
-                          <input value={this.state.password} onChange={ev => this.setState({password: ev.target.value})} autoComplete="false" id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
+                          <input value={this.state.password} onChange={ev => this.setState({ password: ev.target.value })} autoComplete="false" id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
                         </div>
                       </div>
                       <div>
@@ -132,7 +141,7 @@ export default class Login extends Component {
                       <div className="rounded-md shadow-sm -space-y-px">
                         <div>
                           <label for="nisn-address" class="sr-only">NISN</label>
-                          <input id="nisn-address" name="nisn" type="text" autocomplete="nisn" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="NISN" />
+                          <input value={this.state.nisn} onChange={ev => this.setState({ nisn: ev.target.value })} id="nisn-address" name="nisn" type="text" autocomplete="nisn" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="NISN" />
                         </div>
                       </div>
                       <div>
