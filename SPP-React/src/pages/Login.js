@@ -91,11 +91,6 @@ export default class Login extends Component {
                     <p class="mt-2 text-center text-sm text-gray-600">
                       Or
                     </p>
-                    {/* <div className="text-center">
-                      <a href="/register" className="font-medium text-indigo-600  hover:text-indigo-500">
-                        Start making your account!
-                      </a>
-                    </div> */}
                   </div>
                   <div className="text-center">
                     <p className="text-gray-800 text-base">Login Sebagai </p>

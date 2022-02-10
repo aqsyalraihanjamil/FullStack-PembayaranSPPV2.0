@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Slider from '../components/Slider'
 import { SliderData } from '../components/SliderData'
-import axios from "axios"
-import { base_url } from "../config"
 
 export default class Register extends Component {
   constructor() {

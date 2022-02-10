@@ -35,7 +35,7 @@ const Slider = ({ slides }) => {
               {current === 0 ? <YourSvg0 className="w-24 h-24 mx-auto absolute top-32"/>:null}
               {current === 1 ? <YourSvg2 className="w-24 h-24 mx-auto absolute top-32"/>:null}
               {current === 2 ? <YourSvg1 className="w-24 h-24 mx-auto absolute top-32"/>:null}
-                <a className="absolute text-white font-bold text-4xl mx-16 text-center justify-center items-center ">{slide.text}</a>
+                <p className="absolute text-white font-bold text-4xl mx-16 text-center justify-center items-center ">{slide.text}</p>
                 <img src={slide.image} alt="Carousel" className="w-full h-full object-cover rounded-r-xl" />
               </div>
             )}

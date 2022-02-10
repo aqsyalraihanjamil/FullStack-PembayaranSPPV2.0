@@ -15,6 +15,7 @@ module.exports = {
         'yellow-dollar': '#FCA765',
         'red-base': '#D82F45',
         'black-logo': '#130F26',
+        'grey-activities' : '#595959'
       },
       gridTemplateRows: {
         // Simple 8 row grid
@@ -61,7 +62,8 @@ module.exports = {
       },
       height: {
         '22': '5.5rem',
-        '10%': '8.33333%'
+        '10%': '8.33333%',
+        '1/7' : '14.2857142857%'
       },
       borderRadius: {
         'custom': '10px',

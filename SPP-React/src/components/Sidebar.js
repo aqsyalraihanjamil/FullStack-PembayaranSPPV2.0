@@ -38,20 +38,15 @@ export default class Home extends Component {
         <div className='h-full overflow-hidden w-full'>
           {/* Mobile Views */}
           <div>
-            <div className='lg:hidden grid grid-cols-3 w-full justify-center h-16 '>
+            <div className='xl:hidden fixed bg-white grid grid-cols-3 w-full justify-center h-16 '>
               <Menu className='h-full w-8 ml-4' />
               <Title className='w-full h-full' />
-              <img src={Acc} className='ml-auto mr-4 rounded-full mt-1 h-4/5 w-12' />
-            </div>
-            <div className='lg:hidden grid grid-cols-12 grid-rows-12 w-full h-full gap-4'>
-              <div className='row-start-1'>
-                <p>asdasdad</p>
-              </div>
+              <img src={Acc} className='ml-auto mr-4 rounded-full mt-1 h-4/5 w-12' alt='pa' />
             </div>
           </div>
 
           {/* Desktop Views */}
-          <div className='p-8 pt-4 xl:w-76 w-64 fixed hidden lg:inline h-full z-10 bg-white'>
+          <div className='p-8 pt-4 xl:w-76 w-64 fixed hidden xl:inline h-full z-10 bg-white'>
             <div className='items-center justify-center pb-6'>
               <Title2 className='h-full w-full justify-center' />
             </div>
@@ -68,57 +63,57 @@ export default class Home extends Component {
             <div className='xl:mt-12 ml-4 mt-8'>
               <Link to='../'>
                 <div className='flex items-center w-full'>
-                  {this.state.path == "/" ? (
+                  {this.state.path === "/" ? (
                     <Dashboard className=' w-1/4 xl:h-8 h-7 mr-2' />
                   ) : (
                     <DashboardBlack className='w-1/4 xl:h-8 h-7 mr-2' />
                   )}
-                  <p className={'font-body w-2/3 xl:text-xl lg:text-lg ' + (this.state.path == "/" ? "text-purple-base" : "text-grey-666")}>Dashboard</p>
+                  <p className={'font-body w-2/3 xl:text-xl ' + (this.state.path === "/" ? "text-purple-base" : "text-grey-666")}>Dashboard</p>
                 </div>
               </Link>
             </div>
             <div className='xl:mt-10 mt-8 ml-4'>
               <Link to='/siswa'>
                 <div className='flex items-center w-full'>
-                  {this.state.path == "/siswa" ? (
+                  {this.state.path === "/siswa" ? (
                     <Siswa className='w-1/4 xl:h-8 h-7 mr-2' />
                   ) : (
                     <SiswaBlack className='w-1/4 xl:h-8 h-7 mr-2' />
                   )}
-                  <p className={'font-body w-2/3 xl:text-xl lg:text-lg ' + (this.state.path == "/siswa" ? "text-purple-base" : "text-grey-666")}>Siswa</p>
+                  <p className={'font-body w-2/3 xl:text-xl  ' + (this.state.path === "/siswa" ? "text-purple-base" : "text-grey-666")}>Siswa</p>
                 </div>
               </Link>
             </div>
             <div className='mt-10 ml-4'>
               <Link to='/petugas'>
                 <div className='flex items-center w-full'>
-                  {this.state.path == "/petugas" ? (
+                  {this.state.path === "/petugas" ? (
                     <Petugas className='w-1/4 xl:h-8 h-7 mr-2' />
                   ) : (
                     <PetugasBlack className='w-1/4 xl:h-8 h-7 mr-2' />
                   )}
-                  <p className={'font-body w-2/3 xl:text-xl lg:text-lg ' + (this.state.path == "/petugas" ? "text-purple-base" : "text-grey-666")}>Petugas</p>
+                  <p className={'font-body w-2/3 xl:text-xl  ' + (this.state.path === "/petugas" ? "text-purple-base" : "text-grey-666")}>Petugas</p>
                 </div>
               </Link>
             </div>
             <div className='mt-10 ml-4'>
               <Link to='/pembayaran'>
                 <div className='flex items-center w-full'>
-                  {this.state.path == "/pembayaran" ? (
+                  {this.state.path === "/pembayaran" ? (
                     <Pembayaran className='w-1/4 xl:h-8 h-7 mr-2' />
                   ) : (
                     <PembayaranBlack className='w-1/4 xl:h-8 h-7 mr-2' />
                   )}
-                  <p className={'font-body w-2/3 xl:text-xl lg:text-lg ' + (this.state.path == "/pembayaran" ? "text-purple-base" : "text-grey-666")}>Pembayaran</p>
+                  <p className={'font-body w-2/3 xl:text-xl ' + (this.state.path === "/pembayaran" ? "text-purple-base" : "text-grey-666")}>Pembayaran</p>
                 </div>
               </Link>
             </div>
           </div>
-          <div className='xl:pl-72 pl-64 w-full'>
-            <div className=' h-10% flex items-center overflow-hidden w-full bg-white fixed shadow-bottom '>
-              <div className='flex w-full mr-72 items-center'>
-                <p className='xl:text-3xl lg:text-2xl font-body text-purple-base font-medium ml-20'>Welcome, Admin!</p>
-                <img src={Acc} className='h-12 ml-auto rounded-full ' />
+          <div className='  w-full hidden xl:inline'>
+            <div className='xl:pl-72  h-10% flex items-center overflow-hidden w-full bg-white fixed shadow-bottom '>
+              <div className='flex w-full items-center'>
+                <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Welcome, Admin!</p>
+                <img src={Acc} className='h-12 ml-auto rounded-full' alt='pp' />
                 <p className=' ml-1 font-body text-base'>Aqsyal Raihan Jamil</p>
                 <ArrowDown className='mr-12 ml-1' />
               </div>
