@@ -38,6 +38,22 @@ app.get("/:id_pembayaran", accessLimit(["admin","petugas"]), async (req, res) =>
   })
   res.json(result)
 })
+app.get("/petugas/:id_petugas", accessLimit(["admin","petugas"]), async (req, res) => {
+  let param = { id_petugas: req.params.id_petugas }
+  let result = await pembayaran.findAll({
+    where: param,
+    include: [
+      "petugas",
+      "siswa",
+      {
+        model: siswa,
+        as: "siswa",
+        include: ["spp"]
+      }
+    ]
+  })
+  res.json(result)
+})
 app.get("/siswa/:nisn", async (req,res) => {
   let param = {nisn: req.params.nisn}
   let result = await pembayaran.findAll({
