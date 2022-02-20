@@ -154,15 +154,18 @@ export default class Home extends Component {
 
   getEntriPetugas = () => {
     let id = JSON.parse(localStorage.getItem("admin"))
-    let url = base_url + "/pembayaran/" + id.id_petugas
+    let url = base_url + "/pembayaran/petugas/" + id.id_petugas
+    console.log(id.id_petugas)
     axios.get(url, this.headerConfig())
       .then(response => {
         let tempPembayaran = []
         tempPembayaran = response.data
-        this.setState({ entriCount: response.data.length })
         this.sortUpdate(tempPembayaran)
-        let num = tempPembayaran.length - 5
-        tempPembayaran.length -= num
+        // if (tempPembayaran.length > 5) {
+        //   let num = tempPembayaran.length - 5
+        //   tempPembayaran.length -= num
+        // }
+        console.log(tempPembayaran)
         this.setState({ petugasPembayaran: tempPembayaran })
       })
       .catch(
@@ -304,10 +307,10 @@ export default class Home extends Component {
               </div>
               <table className="table-fixed h-5/6 w-full ">
                 <tbody className=''>
-                  {pembayaran ? pembayaran.map((item, index) => (
+                  {pembayaran ? pembayaran.map((item, index, {length}) => (
                     (index % 2 === 0 ?
                       <tr key={index} className="bg-tosca-light font-base overflow-hidden">
-                        {index === 4 ?
+                        {length - 1 === index ?
                           <td className='rounded-b-xl '>
                             <div className='mx-4 '>
                               <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
@@ -322,9 +325,7 @@ export default class Home extends Component {
                                 </div>
                               </div>
                             </div>
-
                           </td>
-
                           :
                           <td className='relative'>
                             <div className='mx-4 '>
@@ -375,10 +376,10 @@ export default class Home extends Component {
               </div>
               <table className="table-fixed h-5/6 w-full ">
                 <tbody className=''>
-                  {petugasPembayaran ? petugasPembayaran.map((item, index) => (
+                  {petugasPembayaran ? petugasPembayaran.map((item, index, {length}) => (
                     (index % 2 === 0 ?
                       <tr key={index} className="bg-purple-verylight font-base overflow-hidden">
-                        {index === 4 ?
+                        {length - 1 === index ?
                           <td className='rounded-b-xl '>
                             <div className='mx-4 '>
                               <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
@@ -391,9 +392,7 @@ export default class Home extends Component {
                                 </div>
                               </div>
                             </div>
-
                           </td>
-
                           :
                           <td className='relative'>
                             <div className='mx-4 '>

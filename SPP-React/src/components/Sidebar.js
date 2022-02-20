@@ -18,7 +18,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      path: "/"
+      path: "/",
+      name: ""
     }
   }
 
@@ -29,8 +30,16 @@ export default class Home extends Component {
     })
   }
 
+  setName = () => {
+    let name = JSON.parse(localStorage.getItem("admin"))
+    this.setState({ name: name.nama_petugas })
+
+  }
+
+
   componentDidMount() {
     this.setPath()
+    this.setName()
   }
   render() {
     return (
@@ -46,7 +55,7 @@ export default class Home extends Component {
           </div>
 
           {/* Desktop Views */}
-          <div className='p-8 pt-4 xl:w-76 w-64 fixed hidden xl:inline h-full z-10 bg-white'>
+          <div className='p-8 pt-4 xl:w-76 w-64 fixed hidden xl:inline h-full z-20 bg-white overflow-hidden'>
             <div className='items-center justify-center pb-6'>
               <Title2 className='h-full w-full justify-center' />
             </div>
@@ -109,12 +118,16 @@ export default class Home extends Component {
               </Link>
             </div>
           </div>
-          <div className='  w-full hidden xl:inline'>
-            <div className='xl:pl-72  h-10% flex items-center overflow-hidden w-full bg-white fixed shadow-bottom '>
+          <div className='  w-full hidden xl:inline z-10'>
+            <div className='xl:pl-72  h-10% flex items-center overflow-hidden w-full bg-white fixed shadow-bottom z-10'>
               <div className='flex w-full items-center'>
-                <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Welcome, Admin!</p>
+                {this.state.path === "/" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Welcome, Admin!</p>)
+                  : this.state.path === "/siswa" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Siswa Page</p>)
+                    : this.state.path === "/petugas" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Petugas Page</p>)
+                      : this.state.path === "/pembayaran" ? <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Pembayaran Page</p> : null}
+
                 <img src={Acc} className='h-12 ml-auto rounded-full' alt='pp' />
-                <p className=' ml-1 font-body text-base'>Aqsyal Raihan Jamil</p>
+                <p className=' ml-1 font-body text-base'>{this.state.name}</p>
                 <ArrowDown className='mr-12 ml-1' />
               </div>
 

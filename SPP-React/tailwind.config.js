@@ -7,7 +7,7 @@ module.exports = {
       colors: {
         'purple-base': '#423DDB',
         'purple-light': '#6058E2',
-        'purple-verylight': '#EEEDFD',
+        'purple-verylight': '#EFEEFC',
         'tosca': '#24B1C5',
         'tosca-light': '#EAF7F9',
         'grey-666': '#666666',
@@ -15,7 +15,7 @@ module.exports = {
         'yellow-dollar': '#FCA765',
         'red-base': '#D82F45',
         'black-logo': '#130F26',
-        'grey-activities' : '#595959'
+        'grey-activities': '#595959'
       },
       gridTemplateRows: {
         // Simple 8 row grid
@@ -32,7 +32,7 @@ module.exports = {
         '11': '11',
         '12': '12',
         '13': '13',
-      },gridTemplateColumns: {
+      }, gridTemplateColumns: {
         // Simple 16 column grid
         '13': 'repeat(13, minmax(0, 1fr))',
 
@@ -55,15 +55,34 @@ module.exports = {
         '18': '4.5rem',
         '76': '19rem',
         '22': '5.5rem',
-        '10%': '8.33333%'
+        '10%': '8.33333%',
+        '5%': '5.55%',
+        '12.5%': '12.5%',
+        '25%': '25%',
+        '30%': '30%',
+        '15%': '15%',
       },
       width: {
         '76': '19rem',
+        '1/7': '14.2857142857%',
+        '1/8': '12.5%'
       },
       height: {
         '22': '5.5rem',
         '10%': '8.33333%',
-        '1/7' : '14.2857142857%'
+        '1/7': '14.2857142857%',
+        '90%': "91.677777%",
+        '1/12': '8.333333%',
+        '2/12': '16.666667%',
+        '3/12': '25%',
+        '4/12': '33.333333%',
+        '5/12': '41.666667%',
+        '6/12': '50%',
+        '7/12': '58.333333%',
+        '8/12': '66.666667%',
+        '9/12': '75%',
+        '10/12': '83.333333%',
+        '11/12': '91.666667%',
       },
       borderRadius: {
         'custom': '10px',
