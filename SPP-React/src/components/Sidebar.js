@@ -130,12 +130,9 @@ export default class Home extends Component {
                 <p className=' ml-1 font-body text-base'>{this.state.name}</p>
                 <ArrowDown className='mr-12 ml-1' />
               </div>
-
             </div>
           </div>
-
         </div>
-
       </div>
 
     )
