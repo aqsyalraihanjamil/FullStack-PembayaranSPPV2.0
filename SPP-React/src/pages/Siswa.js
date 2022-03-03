@@ -6,6 +6,8 @@ import { ReactComponent as Edit } from "../assets/siswa/Edit.svg"
 import { ReactComponent as Delete } from "../assets/siswa/Delete.svg"
 import { ReactComponent as Exit } from "../assets/siswa/Exit.svg"
 import { ReactComponent as Plus } from "../assets/siswa/Plus.svg"
+import { ReactComponent as ArrowLeft } from "../assets/siswa/ArrowLeft.svg"
+import { ReactComponent as ArrowRight } from "../assets/siswa/ArrowRight.svg"
 import { base_url, image_url } from '../config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -131,7 +133,7 @@ export default class Siswa extends Component {
   Add = () => {
     this.setState({
       action: 'insert',
-      nisn: 0,
+      nisn: '',
       nis: '',
       nama: '',
       id_kelas: 0,
@@ -174,7 +176,6 @@ export default class Siswa extends Component {
     if (this.state.uploadFile) {
       form.append('image', this.state.image)
     }
-
     let url = base_url + "/siswa"
     if (this.state.action === "insert") {
       axios.post(url, form, this.headerConfig())
@@ -194,9 +195,22 @@ export default class Siswa extends Component {
 
   }
 
+  dropSiswa = (selectedItem) => {
+    if (window.confirm("are you sure will delete this item?")) {
+      let url = base_url + "/siswa/" + selectedItem.nisn
+      axios.delete(url, this.headerConfig())
+        .then(response => {
+          window.alert(response.data.message)
+          this.getSiswa()
+        })
+        .catch(error => console.log(error))
+    }
+  }
+
   log = () => {
     console.log(this.state.id_kelas)
   }
+
   componentDidMount() {
     this.getSiswa()
     this.getKelas()
@@ -207,37 +221,42 @@ export default class Siswa extends Component {
 
     return (
       <div>
+        {/* go to sidebar.js */}
         <Sidebar />
+        {/* content */}
         <div className='xl:pl-76 h-screen xl:pt-20 pt-16 w-screen bg-grey-eee overflow-hidden '>
           <div className='p-8 h-full'>
             <div className='flex gap-4'>
               <div className='h-14 bg-white xl:w-1/3  rounded-xl shadow-md border-purple-light border-2 border-opacity-80'>
+                {/* Searcher */}
                 <div className='flex justify-center items-center h-full w-full'>
                   <Search className="w-2/12 lg:w-1/12 xl:w-1/6 h-3/5" />
                   <p className='w-10/12 lg:w-11/12 xl:w-5/6 font-body text-lg text-grey-666 opacity-80'>Search for name or NISN</p>
                 </div>
               </div>
               <div className='w-2/4 flex gap-4 ml-auto mr-0 '>
-                <button className='h-14 text-white xl:w-1/3  rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
+                {/* Insert Data */}
+                <button className='h-14 text-white xl:w-1/3 rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
                   <p className='font-base text-lg font-medium w-5/6 overflow-hidden'>Tambah Data</p>
-                  <Plus className="h-3/4 w-1/6 ml-0" />
+                  <Plus className="h-1/2 w-1/6 ml-0" />
                 </button>
+                {/* Go to kelas page */}
                 <Link className='h-full w-1/3' to="../kelas">
-                  <div className='h-14 bg-white xl:w-full  rounded-2xl shadow-md border-purple-light border-2 border-opacity-80'>
-                    <div className='flex justify-center items-center h-full w-full'>
-                      <button>Data SPP</button>
-                    </div>
+                  <div className='h-14 xl:w-full  rounded-2xl shadow-md bg-tosca border-opacity-80 flex justify-center items-center'>
+                    <p className='font-base text-white text-lg font-medium overflow-hidden'>Data Kelas</p>
                   </div>
                 </Link>
+                {/* spp page */}
                 <Link className='h-full w-1/3' to="../spp">
-                  <div className='h-14 bg-white xl:w-full  rounded-2xl shadow-md border-purple-light border-2 border-opacity-80'>
+                  <div className='h-14 xl:w-full rounded-2xl shadow-md bg-red-base border-opacity-80'>
                     <div className='flex justify-center items-center h-full w-full'>
-                      <button>Data Kelas</button>
+                      <p className='font-base text-white text-lg font-medium overflow-hidden'>Data Spp</p>
                     </div>
                   </div>
                 </Link>
               </div>
             </div>
+            {/* table */}
             <div className=' h-90% pt-8 w-full'>
               <div className="table w-full table-auto h-full bg-white rounded-xl shadow-xl px-4">
                 {/* Header Table Siswa*/}
@@ -266,25 +285,33 @@ export default class Siswa extends Component {
                       <div className='table-cell align-middle border-b-2 border-solid border-grey-eee  overflow-hidden'>
                         <div className='lg:flex w-full h-full items-center gap-4  hidden'>
                           <button className='h-12 bg-purple-verylight w-1/3 shadow-sm rounded-full items-center flex justify-center' onClick={() => { this.setState({ showingDetail: !showingDetail }); this.getDetailSiswa(item) }}> <p className='w-1/2 text-center font-medium'>Detail</p> <Detail className='h-1/2 w-1/6 xl:w-1/5' /> </button>
-                          <button className='h-12 bg-purple-verylight w-1/3 shadow-sm rounded-full items-center flex justify-center' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Edit(item) }}> <p className='w-1/2 text-center font-medium'>Edit</p> <Edit className='h-1/2 w-1/6 xl:w-1/5' /> </button>
-                          <button className='h-12 bg-purple-verylight w-1/3 shadow-sm rounded-full items-center flex justify-center'> <p className='w-1/2 text-center font-medium'>Delete</p> <Delete className='h-1/2 w-1/5 ml-4 2xl:ml-0' /> </button>
+                          <button className='h-12 bg-tosca bg-opacity-15 w-1/3 shadow-sm rounded-full items-center flex justify-center' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Edit(item) }}> <p className='w-1/2 text-center font-medium'>Edit</p> <Edit className='h-1/2 w-1/6 xl:w-1/5' /> </button>
+                          <button className='h-12 bg-red-base bg-opacity-15 w-1/3 shadow-sm rounded-full items-center flex justify-center' onClick={() => this.dropSiswa(item)}> <p className='w-1/2 text-center font-medium'>Delete</p> <Delete className='h-1/2 w-1/5 ml-4 2xl:ml-0' /> </button>
                         </div>
                       </div>
                     </div>
                   )) : null}
                 </div>
                 {/* Footer Table Siswa */}
-                <div className="table-footer-group h-1/12 font-body font-medium text-xl ">
-                  <div className='flex'>
-                    <div>asda</div>
-                    <div>asda</div>
-                    <div>asda</div>
+                <tfoot className="h-1/12 ">
+                  <div className="table-row font-body font-medium text-xl w-full">
+                    <td colSpan="8">
+                      <div className='p-2 flex items-center justify-center h-full w-full'>
+                        <p className='text-grey-activities text-opacity-80 text-lg'>Showing entries of {this.state.siswa.length} from {this.state.siswa.length}</p>
+                        <div className='ml-auto mr-0 flex h-full items-center gap-2'>
+                          <ArrowLeft />
+                          <p className='text-2xl font-body'>1</p>
+                          <ArrowRight />
+                        </div>
+                      </div>
+                    </td>
                   </div>
-                </div>
+                </tfoot>
               </div>
             </div>
           </div>
         </div>
+        {/* Detail function */}
         {showingDetail && (
           <div className=' bg-white fixed z-20 w-full h-full bottom-0 backdrop-filter backdrop-blur-sm  bg-opacity-30 flex'>
             <div className='justify-center items-center w-3/5 h-1/2 bg-white m-auto relative shadow-2xl border-2 border-grey-eee rounded-xl'>
@@ -295,7 +322,7 @@ export default class Siswa extends Component {
               {detailSiswa ? detailSiswa.map((item, index) => (
                 <div className='flex p-8 gap-4 h-10/12 w-full'>
                   <div className='w-1/3 flex items-center justify-center'>
-                    <img className='h-auto w-auto rounded-full p-8' style={{ 'clip-path': "circle()" }} src={image_url + item.image} alt="Siswa" />
+                    <img className='p-8 rounded-full' src={image_url + item.image} alt="Siswa" />
                   </div>
                   <div className='w-1/3 font-body h-full'>
                     <div className='h-1/4'>
@@ -338,6 +365,7 @@ export default class Siswa extends Component {
             </div>
           </div>
         )}
+        {/*  */}
         {showingEdit && (
           <div className=' bg-white fixed z-20 w-full h-full bottom-0 backdrop-filter backdrop-blur-sm  bg-opacity-30 flex'>
             <div className='justify-center items-center w-1/3 h-3/4 bg-white m-auto relative shadow-2xl border-2 border-grey-eee rounded-xl px-8'>
@@ -350,7 +378,11 @@ export default class Siswa extends Component {
                   <div className="space-y-4">
                     <div className='font-body space-y-2'>
                       <label className='text-xl font-medium pb-2'>NISN</label>
-                      <input className=' block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light' placeholder='NISN' type="text" value={this.state.nisn} onChange={ev => this.setState({ nisn: ev.target.value })} required />
+                      {this.state.action === "insert" ? (
+                        <input className=' block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light' placeholder='NISN' type="text" value={this.state.nisn} onChange={ev => this.setState({ nisn: ev.target.value })} maxLength="10" required />
+                      ) : (
+                        <input className=' block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light' placeholder='NISN' type="text" value={this.state.nisn} onChange={ev => this.setState({ nisn: ev.target.value })} maxLength="8" required disabled />
+                      )}
                     </div>
                     <div className='font-body space-y-2'>
                       <label className='text-xl font-medium'>NIS</label>
@@ -358,7 +390,7 @@ export default class Siswa extends Component {
                     </div>
                     <div className='font-body space-y-2'>
                       <label className='text-xl font-medium'>Nama</label>
-                      <input className=' block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light' placeholder='Nama' type="text" value={this.state.nama} onChange={ev => this.setState({ nama: ev.target.value })} required />
+                      <input className=' block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light' placeholder='Nama' type="text" value={this.state.nama} onChange={ev => this.setState({ nama: ev.target.value })} maxLength="20" required />
                     </div>
                     <div className='font-body space-y-2'>
                       <label className='text-xl font-medium'>Kelas</label>
@@ -367,7 +399,7 @@ export default class Siswa extends Component {
                           <option selected="selected">-</option>
                         ) : null}
                         {kelas && kelas.map((item, index) => (
-                          <option value={item.id_kelas}>{item.id_kelas} - {item.nama_kelas} - Angkatan {item.angkatan}</option>
+                          <option value={item.id_kelas}>{item.id_kelas} - {item.nama_kelas} ( Angkatan {item.angkatan} )</option>
                         ))}
                       </select>
                     </div>
@@ -386,7 +418,7 @@ export default class Siswa extends Component {
                           <option selected="selected">-</option>
                         ) : null}
                         {spp && spp.map((item, index) => (
-                          <option value={item.id_spp}>{item.id_spp} - Rp. {item.nominal} - Angkatan {item.angkatan}</option>
+                          <option value={item.id_spp}>{item.id_spp} - Rp. {item.nominal} ( Angkatan {item.angkatan} )</option>
                         ))}
                       </select>
                     </div>

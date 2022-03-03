@@ -89,6 +89,9 @@ module.exports = {
       },
       boxShadow: {
         'bottom': '15px 5px 30px 2px rgba(0, 0, 0, 0.25);',
+      },
+      opacity: {
+        '15': '.15',
       }
     },
   },

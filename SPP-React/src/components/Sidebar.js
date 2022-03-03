@@ -124,8 +124,9 @@ export default class Home extends Component {
                 {this.state.path === "/" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Welcome, Admin!</p>)
                   : this.state.path === "/siswa" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Siswa Page</p>)
                     : this.state.path === "/petugas" ? (<p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Petugas Page</p>)
-                      : this.state.path === "/pembayaran" ? <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Pembayaran Page</p> : null}
-
+                      : this.state.path === "/pembayaran" ? <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Pembayaran Page</p>
+                        : this.state.path === "/spp" ? <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Spp Page</p>
+                          : this.state.path === "/kelas" ? <p className='xl:text-3xl font-body text-purple-base font-medium ml-20'>Kelas Page</p> : null}
                 <img src={Acc} className='h-12 ml-auto rounded-full' alt='pp' />
                 <p className=' ml-1 font-body text-base'>{this.state.name}</p>
                 <ArrowDown className='mr-12 ml-1' />

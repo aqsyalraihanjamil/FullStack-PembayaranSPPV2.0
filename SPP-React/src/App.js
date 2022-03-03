@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import { Switch, Route } from "react-router-dom"
-import Home from './pages/Home'
-import Login from "./pages/Login"
-import Register from './pages/Register'
-import Siswa from "./pages/Siswa"
-import Petugas from './pages/Petugas'
-import Pembayaran from './pages/Pembayaran'
-import Kelas from './pages/Kelas'
-import Spp from './pages/Spp'
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Siswa from "./pages/Siswa";
+import Petugas from "./pages/Petugas";
+import Pembayaran from "./pages/Pembayaran";
+import Kelas from "./pages/Kelas";
+import Spp from "./pages/Spp";
 
 export default class App extends Component {
   render() {
@@ -24,6 +24,6 @@ export default class App extends Component {
           <Route path="/register" component={Register} />
         </Switch>
       </div>
-    )
+    );
   }
 }

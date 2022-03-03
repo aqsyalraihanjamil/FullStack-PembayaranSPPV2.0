@@ -161,10 +161,10 @@ export default class Home extends Component {
         let tempPembayaran = []
         tempPembayaran = response.data
         this.sortUpdate(tempPembayaran)
-        // if (tempPembayaran.length > 5) {
-        //   let num = tempPembayaran.length - 5
-        //   tempPembayaran.length -= num
-        // }
+        if (tempPembayaran.length > 5) {
+          let num = tempPembayaran.length - 5
+          tempPembayaran.length -= num
+        }
         console.log(tempPembayaran)
         this.setState({ petugasPembayaran: tempPembayaran })
       })
