@@ -8,6 +8,7 @@ import Petugas from "./pages/Petugas";
 import Pembayaran from "./pages/Pembayaran";
 import Kelas from "./pages/Kelas";
 import Spp from "./pages/Spp";
+import Entri from "./pages/Entri";
 
 export default class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/entri" component={Entri} />
           <Route path="/login" component={Login} />
           <Route path="/siswa" component={Siswa} />
           <Route path="/petugas" component={Petugas} />

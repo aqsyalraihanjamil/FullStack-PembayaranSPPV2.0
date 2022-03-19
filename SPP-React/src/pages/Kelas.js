@@ -148,10 +148,7 @@ export default class Kelas extends Component {
                     <p className='w-10/12 lg:w-11/12 xl:w-5/6 font-body text-lg text-grey-666 opacity-80'>Search any</p>
                   </div>
                 </div>
-                <button className='h-14 text-white xl:w-1/6 ml-auto mr-0 rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
-                  <p className='font-base text-lg font-medium w-5/6 overflow-hidden'>Tambah Data</p>
-                  <Plus className="h-1/2 w-1/6 ml-0" />
-                </button>
+            
               </div>
               {/* table */}
               <div className=' h-90% pt-8 w-full'>
@@ -189,7 +186,10 @@ export default class Kelas extends Component {
                     <div className="table-row font-body font-medium text-xl w-full">
                       <td colSpan="5">
                         <div className='p-2 flex items-center justify-center h-full'>
-                          <p className='text-grey-activities text-opacity-80 text-lg'>Showing entries of {kelas.length} from {kelas.length}</p>
+                          <button className='h-14 text-white xl:w-1/6 rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
+                            <p className='font-base text-lg font-medium w-5/6 overflow-hidden'>Tambah Data</p>
+                            <Plus className="h-1/2 w-1/6 ml-0" />
+                          </button>
                           <div className='ml-auto mr-0 flex h-full items-center gap-2'>
                             <ArrowLeft />
                             <p className='text-2xl font-body'>1</p>

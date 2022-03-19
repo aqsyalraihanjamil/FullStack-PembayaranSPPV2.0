@@ -68,11 +68,11 @@ export default class Petugas extends Component {
     this.setState({
       action: 'insert',
       id_petugas: 0,
-      nama_petugas: 0,
+      nama_petugas: "",
       username: '',
       password: '',
       level: '',
-      image: '',
+      image: null,
     })
   }
 
@@ -94,18 +94,19 @@ export default class Petugas extends Component {
     ev.preventDefault()
     this.setState({ showingEdit: !this.state.showingEdit })
     let form = new FormData()
-    form.append('nisn', this.state.nisn)
-    form.append('nis', this.state.nis)
-    form.append('nama', this.state.nama)
-    form.append('kelas', this.state.kelas)
-    form.append('alamat', this.state.alamat)
-    form.append('no_telp', this.state.no_telp)
-    form.append('id_kelas', this.state.id_kelas)
-    form.append('id_spp', this.state.id_spp)
+    form.append('id_petugas', this.state.id_petugas)
+    form.append('nama_petugas', this.state.nama_petugas)
+    form.append('username', this.state.username)
+    form.append('level', this.state.level)
+
+    if (this.state.fillPassword) {
+      form.append('password', this.state.password)
+    }
 
     if (this.state.uploadFile) {
       form.append('image', this.state.image)
     }
+
 
     let url = base_url + "/petugas"
     if (this.state.action === "insert") {
@@ -161,10 +162,6 @@ export default class Petugas extends Component {
                     <p className='w-10/12 lg:w-11/12 xl:w-5/6 font-body text-lg text-grey-666 opacity-80'>Search for name or NISN</p>
                   </div>
                 </div>
-                <button className='h-14 text-white xl:w-1/6 ml-auto mr-0 rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
-                  <p className='font-base text-lg font-medium w-5/6 overflow-hidden'>Tambah Data</p>
-                  <Plus className="h-1/2 w-1/6 ml-0" />
-                </button>
               </div>
               {/* table */}
               <div className=' h-90% pt-8 w-full'>
@@ -204,9 +201,13 @@ export default class Petugas extends Component {
                   {/* Footer Table Siswa */}
                   <tfoot className="h-1/12 ">
                     <div className="table-row font-body font-medium text-xl w-full">
-                      <td colSpan="5">
+                      <td colSpan="100">
                         <div className='p-2 flex items-center justify-center h-full'>
-                          <p className='text-grey-activities text-opacity-80 text-lg'>Showing entries of {this.state.petugas.length} from {this.state.petugas.length}</p>
+                           {/* Insert Data */}
+                        <button className='h-14 text-white xl:w-1/6 rounded-2xl shadow-md bg-purple-light flex justify-center items-center p-2' onClick={() => { this.setState({ showingEdit: !showingEdit }); this.Add() }}>
+                          <p className='font-base text-lg font-medium w-5/6 overflow-hidden'>Tambah Data</p>
+                          <Plus className="h-1/2 w-1/6 ml-0" />
+                        </button>
                           <div className='ml-auto mr-0 flex h-full items-center gap-2'>
                             <ArrowLeft />
                             <p className='text-2xl font-body'>1</p>
@@ -226,7 +227,7 @@ export default class Petugas extends Component {
             <div className=' bg-white fixed z-20 w-full h-full bottom-0 backdrop-filter backdrop-blur-sm  bg-opacity-30 flex'>
               <div className='justify-center items-center w-1/3 h-3/4 bg-white m-auto relative shadow-2xl border-2 border-grey-eee rounded-xl px-8'>
                 <div className='h-1/7 flex justify-center items-center '>
-                  <p className='font-body text-3xl font-medium text-purple-base'>Edit Siswa</p>
+                  <p className='font-body text-3xl font-medium text-purple-base'>Edit Petugas</p>
                   <Exit className='right-0 ml-auto h-10 w-10 cursor-pointer' onClick={() => this.setState({ showingEdit: !showingEdit })} />
                 </div>
                 <div className='h-5/6 w-full overflow-auto pr-4'>
