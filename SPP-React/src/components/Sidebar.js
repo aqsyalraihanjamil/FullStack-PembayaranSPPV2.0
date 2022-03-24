@@ -13,7 +13,6 @@ import { ReactComponent as PetugasBlack } from "../assets/sidebar/Petugas_black.
 import { ReactComponent as Pembayaran } from "../assets/sidebar/Pembayaran.svg";
 import { ReactComponent as PembayaranBlack } from "../assets/sidebar/Pembayaran_black.svg";
 import { ReactComponent as ArrowDown } from "../assets/sidebar/ArrowDown.svg";
-import Acc from "../assets/dog.jpg";
 import { image_url } from "../config";
 export default class Home extends Component {
   constructor(props) {
@@ -26,7 +25,6 @@ export default class Home extends Component {
       level: "",
       burger: false,
       width: window.innerWidth,
-      height: window.innerHeight
     };
   }
 
@@ -61,7 +59,7 @@ export default class Home extends Component {
   };
 
   updateDimensions = () => {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    this.setState({ width: window.innerWidth });
     this.forceUpdate()
   };
 
@@ -82,7 +80,6 @@ export default class Home extends Component {
     const { modal, burger } = this.state;
     return (
       <div>
-
         <div className="h-full overflow-hidden w-full relative" >
           {/* <CustomComponent /> */}
           {/* <h2>window size: {this.state.width}</h2> */}
@@ -90,8 +87,18 @@ export default class Home extends Component {
           <div className=" xl:w-76 fixed inline h-full z-20 xl:bg-white overflow-hidden">
             <div className="xl:hidden fixed bg-white grid grid-cols-3 w-full justify-center h-16 ">
               <Menu className="h-full w-8 ml-4 cursor-pointer" onClick={() => this.setState({ burger: !burger })} />
-              <Title className="w-full h-full" />
-              <img src={Acc} className="ml-auto mr-4 rounded-full mt-1 h-4/5 w-12" alt="pa" />
+              <Title className="w-full h-16" />
+              <div className="flex">
+                <img src={image_url + this.state.foto} className="ml-auto mr-4 rounded-full mt-1 h-4/5 w-12" alt="pa" />
+                <ArrowDown className="w-4 mr-2 relative inline-block cursor-pointer h-full justify-center" onClick={() => this.setState({ modal: !modal })} />
+                {this.state.modal && (
+                  <div onClick={() => this.Logout()} className="fixed cursor-pointer h-8 w-30 z-40 top-16 right-4 bg-white border border-grey-activities border-opacity-60 px-4 p-1 items-center justify-center block">
+                    <div className="relative">
+                      <p className="font-base text-base ">Logout</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             {(this.state.burger || this.state.width >= 1280) && (
               <div className="xl:w-full w-screen  mt-16 xl:mt-0 h-full" >
@@ -101,7 +108,7 @@ export default class Home extends Component {
                     <Title2 className=" w-full justify-center h-16" />
                   </div>
                   <div className="xl:mt-10 mt-6 w-full h-16 ">
-                    <Link to="/login">
+                    <Link to="/entri">
                       <button className="h-full w-full bg-purple-light rounded-custom drop-shadow-lg">
                         <div className="p-3 flex justify-center items-center h-full w-full mr-4">
                           <p className="xl:text-xl text-md font-medium text-white font-body w-5/6 ">Entri Transaksi</p>
@@ -147,7 +154,7 @@ export default class Home extends Component {
             )}
           </div>
           <div className="  w-full hidden xl:inline z-10 top-0">
-            <div className="xl:pl-72  h-10% flex items-center overflow-hidden w-full bg-white fixed shadow-bottom z-10">
+            <div className="xl:pl-72  h-18 flex items-center overflow-hidden w-full bg-white fixed shadow-bottom z-10">
               <div className="flex w-full items-center">
                 {this.state.path === "/" ? (
                   <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Welcome, Admin!</p>

@@ -197,6 +197,12 @@ export default class Home extends Component {
     return dayName + ', ' + date.getDate() + " " + monthDate + " " + date.getFullYear()
   }
 
+  shortName = (name) => {
+    let slice = name.split(" ")
+    let get2Word = slice.slice(0,2)
+    return get2Word.join(" ")
+  }
+
   threeDigits = (jml) => {
     this.setState({ tunggakanCount: jml.toLocaleString('id-ID') })
   }
@@ -215,53 +221,53 @@ export default class Home extends Component {
       <div >
         <Sidebar />
         <div className='xl:pl-76 h-screen xl:pt-20 pt-16 w-screen bg-grey-eee '>
-          <div className='grid grid-cols-12 grid-rows-8 2xl:p-8 p-6 gap-6 2xl:gap-8 h-full w-full'>
+          <div className='grid grid-cols-12 grid-rows-8 2xl:p-8 p-6 gap-6 2xl:gap-8 h-full w-full '>
             {/* Total Siswa */}
-            <div className='row-span-2 col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4'>
-              <div className='bg-grey-eee h-22 w-22 rounded-full flex items-center justify-center'>
-                <Siswa className=' h-12 w-10' />
+            <div className='row-span-2 col-span-5 md:col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4 min-w-card'>
+              <div className='bg-grey-eee h-16 w-16 lg:h-22 lg:w-22 rounded-full flex items-center justify-center'>
+                <Siswa className='h-10 w-8 lg:h-12 lg:w-10' />
               </div>
               <div className='space-y-1 mr'>
-                <p className='font-semibold font-base text-2xl'>{this.state.siswaCount}</p>
-                <p className='font-base text-xl font-semibold text-grey-666 hidden 2xl:inline'>Total Siswa</p>
-                <p className='font-base text-lg font-semibold text-grey-666 2xl:hidden'>Siswa</p>
+                <p className='font-semibold font-base text-xl lg:text-2xl'>{this.state.siswaCount}</p>
+                <p className='font-base text-lg lg:text-xl font-semibold text-grey-666 hidden 2xl:inline'>Total Siswa</p>
+                <p className='font-base text-base lg:text-lg font-semibold text-grey-666 2xl:hidden'>Siswa</p>
               </div>
             </div>
             {/* Total Petugas */}
-            <div className='row-span-2 col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4'>
-              <div className='bg-grey-eee h-22 w-22 rounded-full flex items-center justify-center'>
-                <User className=' h-12 w-10' />
+            <div className='row-span-2 col-span-5 md:col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4 min-w-card'>
+              <div className='bg-grey-eee  h-16 w-16 lg:h-22 lg:w-22  rounded-full flex items-center justify-center'>
+                <User className='h-10 w-8 lg:h-12 lg:w-10' />
               </div>
               <div className='space-y-1 mr'>
-                <p className='font-semibold font-base text-2xl'>{this.state.petugasCount}</p>
-                <p className='font-base text-xl font-semibold text-grey-666 hidden 2xl:inline'>Total Petugas</p>
-                <p className='font-base text-lg font-semibold text-grey-666 2xl:hidden'>Petugas</p>
+                <p className='font-semibold font-base text-xl lg:text-2xl'>{this.state.petugasCount}</p>
+                <p className='font-base text-lg lg:text-xl font-semibold text-grey-666 hidden 2xl:inline'>Total Petugas</p>
+                <p className='font-base text-base lg:text-lg font-semibold text-grey-666 2xl:hidden'>Petugas</p>
               </div>
             </div>
             {/* Total Tunggakan */}
-            <div className='row-span-2 col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4 overflow-auto w-full h-full'>
-              <div className='bg-grey-eee h-22 w-22 rounded-full flex items-center justify-center shadow-sm ml-1 overflow-auto'>
-                <Tunggakan className=' h-12 w-10' />
+            <div className='row-span-2 col-span-5 md:col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4  w-full h-full min-w-card'>
+              <div className='bg-grey-eee  h-16 w-16 lg:h-22 lg:w-22  rounded-full flex items-center justify-center shadow-sm ml-1 '>
+                <Tunggakan className='h-10 w-8 lg:h-12 lg:w-10' />
               </div>
               <div className='space-y-1 '>
-                <p className='font-semibold font-base text-2xl hidden 2xl:inline'>Rp. {this.state.tunggakanCount}</p>
-                <p className='font-semibold font-base text-xl 2xl:text-2xl 2xl:hidden'>{this.state.tunggakanCount}</p>
-                <p className='font-base text-lg 2xl:text-xl font-semibold text-grey-666'>Tunggakan</p>
+                <p className='font-semibold font-base text-lg lg:text-2xl hidden 2xl:inline'>Rp. {this.state.tunggakanCount}</p>
+                <p className='font-semibold font-base text-base lg:text-xl 2xl:text-2xl 2xl:hidden'>{this.state.tunggakanCount}</p>
+                <p className='font-base text-base lg:text-lg 2xl:text-xl font-semibold text-grey-666'>Tunggakan</p>
               </div>
             </div>
             {/* Total Entri */}
-            <div className='row-span-2 col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4 '>
-              <div className='bg-grey-eee h-22 w-22 rounded-full flex items-center justify-center'>
-                <Entri className=' h-12 w-10' />
+            <div className='row-span-2 col-span-5 md:col-span-3 bg-white rounded-xl shadow-lg flex items-center justify-center 2xl:gap-6 gap-4  min-w-card'>
+              <div className='bg-grey-eee  h-16 w-16 lg:h-22 lg:w-22  rounded-full flex items-center justify-center'>
+                <Entri className='h-10 w-8 lg:h-12 lg:w-10' />
               </div>
               <div className='space-y-1 mr-'>
-                <p className='font-semibold font-base text-2xl'>{this.state.entriCount}</p>
-                <p className='font-base text-xl font-semibold text-grey-666 hidden 2xl:inline'>Total Entri</p>
+                <p className='font-semibold font-base text-xl lg:text-2xl'>{this.state.entriCount}</p>
+                <p className='font-base text-lg lg:text-xl font-medium lg:font-semibold text-grey-666 hidden 2xl:inline'>Total Entri</p>
                 <p className='font-base text-lg font-semibold text-grey-666 2xl:hidden'>Entri</p>
               </div>
             </div>
             {/* Chart */}
-            <div className='row-span-full w-full h-full col-span-3 row-start-3 bg-white rounded-xl shadow-lg '>
+            <div className='row-span-full w-full h-full col-span-5 2xl:col-span-3 row-start-3 bg-white rounded-xl shadow-lg hidden md:inline'>
               <div className='flex justify-center w-full items-center h-1/6'>
                 <p className='font-base text-2xl font-semibold text-center mx-4 pt-4 2xl:pt-0'>Data Transaksi Siswa</p>
               </div>
@@ -301,40 +307,61 @@ export default class Home extends Component {
               </div>
             </div>
             {/* Activities */}
-            <div className='col-start-4 col-span-5 row-start-3 row-span-full bg-white rounded-xl shadow-lg'>
+            <div className='hidden md:inline col-start-6  md:col-span-7 2xl:col-start-4 col-span-full 2xl:col-span-5 md:row-start-3 row-span-full bg-white rounded-xl shadow-lg '>
               <div className='flex items-center justify-center h-1/6'>
                 <p className='font-base text-2xl font-semibold'>Aktivitas</p>
               </div>
-              <table className="table-fixed h-5/6 w-full ">
-                <tbody className=''>
-                  {pembayaran ? pembayaran.map((item, index, {length}) => (
-                    (index % 2 === 0 ?
-                      <tr key={index} className="bg-tosca-light font-base overflow-hidden">
-                        {length - 1 === index ?
-                          <td className='rounded-b-xl '>
-                            <div className='mx-4 '>
-                              <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
-                              <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
-                                <p className=' font-medium'>Petugas:</p>
-                                <p className='font-semibold ml-1'>{item.petugas.nama_petugas}</p>
-                                <p className='ml-3 font-medium'>Siswa:</p>
-                                <p className='font-semibold ml-1'>{item.siswa.nama}</p>
-                                <div className='flex'>
-                                  <p className='ml-3 font-medium '>Nominal:</p>
-                                  <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
+              <div className='overflow-y-auto overflow-x-hidden h-5/6'>
+                <table className="table-fixed h-full w-full ">
+                  <tbody className=''>
+                    {pembayaran ? pembayaran.map((item, index, { length }) => (
+                      (index % 2 === 0 ?
+                        <tr key={index} className="bg-tosca-light font-base overflow-hidden">
+                          {length - 1 === index ?
+                            <td className='rounded-b-xl '>
+                              <div className='mx-4 '>
+                                <p className='font-semibold text-lg'>{this.toDate(item.updatedAt)}</p>
+                                <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
+                                  <p className=' font-medium'>Petugas:</p>
+                                  <p className='font-semibold ml-1'>{this.shortName(item.petugas.nama_petugas)}</p>
+                                  <p className='ml-3 font-medium'>Siswa:</p>
+                                  <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
+                                  <div className='flex'>
+                                    <p className='ml-3 font-medium '>Nominal:</p>
+                                    <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </td>
-                          :
+                            </td>
+                            :
+                            <td className='relative'>
+                              <div className='mx-4 '>
+                                <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
+                                <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
+                                  <p className=' font-medium'>Petugas:</p>
+                                  <p className='font-semibold ml-1'>{this.shortName(item.petugas.nama_petugas)}</p>
+                                  <p className='ml-3 font-medium'>Siswa:</p>
+                                  <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
+                                  <div className='flex'>
+                                    <p className='ml-3 font-medium '>Nominal:</p>
+                                    <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr className='bg-grey-eee absolute bottom-0 h-0.5 w-full' />
+                            </td>
+                          }
+                        </tr>
+                        :
+                        <tr key={index} className="bg-white font-base overflow-hidden ">
                           <td className='relative'>
                             <div className='mx-4 '>
                               <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
-                              <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
+                              <div className='flex pt-4 text-base overflow-auto text-grey-666'>
                                 <p className=' font-medium'>Petugas:</p>
-                                <p className='font-semibold ml-1'>{item.petugas.nama_petugas}</p>
-                                <p className='ml-3 font-medium'>Siswa:</p>
-                                <p className='font-semibold ml-1'>{item.siswa.nama}</p>
+                                <p className='font-semibold ml-1'>{this.shortName(item.petugas.nama_petugas)}</p>
+                                  <p className='ml-3 font-medium'>Siswa:</p>
+                                  <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
                                 <div className='flex'>
                                   <p className='ml-3 font-medium '>Nominal:</p>
                                   <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
@@ -343,40 +370,22 @@ export default class Home extends Component {
                             </div>
                             <hr className='bg-grey-eee absolute bottom-0 h-0.5 w-full' />
                           </td>
-                        }
-                      </tr>
-                      :
-                      <tr key={index} className="bg-white font-base overflow-hidden ">
-                        <td className='relative'>
-                          <div className='mx-4 '>
-                            <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
-                            <div className='flex pt-4 text-base overflow-auto text-grey-666'>
-                              <p className=' font-medium'>Petugas:</p>
-                              <p className='font-semibold ml-1'>{item.petugas.nama_petugas}</p>
-                              <p className='ml-3 font-medium'>Siswa:</p>
-                              <p className='font-semibold ml-1'>{item.siswa.nama}</p>
-                              <div className='flex'>
-                                <p className='ml-3 font-medium '>Nominal:</p>
-                                <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
-                              </div>
-                            </div>
-                          </div>
-                          <hr className='bg-grey-eee absolute bottom-0 h-0.5 w-full' />
-                        </td>
-                      </tr>
-                    )
-                  )) : <p>Moro iki</p>}
-                </tbody>
-              </table>
+                        </tr>
+                      )
+                    )) : <p>Moro iki</p>}
+                  </tbody>
+                </table>
+              </div>
+
             </div>
             {/* History */}
-            <div className='col-start-9 col-span-full row-start-3 row-span-full bg-white rounded-xl shadow-lg'>
+            <div className='col-start-9 col-span-full row-start-3 row-span-full bg-white rounded-xl shadow-lg hidden 2xl:inline'>
               <div className='flex items-center justify-center h-1/6'>
                 <p className='font-base text-2xl font-semibold'>History</p>
               </div>
               <table className="table-fixed h-5/6 w-full ">
                 <tbody className=''>
-                  {petugasPembayaran ? petugasPembayaran.map((item, index, {length}) => (
+                  {petugasPembayaran ? petugasPembayaran.map((item, index, { length }) => (
                     (index % 2 === 0 ?
                       <tr key={index} className="bg-purple-verylight font-base overflow-hidden">
                         {length - 1 === index ?
@@ -385,7 +394,7 @@ export default class Home extends Component {
                               <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
                               <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
                                 <p className=' font-medium'>Siswa:</p>
-                                <p className='font-semibold ml-1'>{item.siswa.nama}</p>
+                                <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
                                 <div className='flex'>
                                   <p className='ml-3 font-medium '>Nominal:</p>
                                   <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
@@ -399,7 +408,7 @@ export default class Home extends Component {
                               <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
                               <div className='flex pt-4 text-base overflow-auto text-grey-activities'>
                                 <p className=' font-medium'>Siswa:</p>
-                                <p className='font-semibold ml-1'>{item.siswa.nama}</p>
+                                <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
                                 <div className='flex'>
                                   <p className='ml-3 font-medium '>Nominal:</p>
                                   <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>
@@ -417,7 +426,7 @@ export default class Home extends Component {
                             <p className='font-semibold text-xl'>{this.toDate(item.updatedAt)}</p>
                             <div className='flex pt-4 text-base overflow-auto text-grey-666'>
                               <p className=' font-medium'>Siswa:</p>
-                              <p className='font-semibold ml-1'>{item.siswa.nama}</p>
+                              <p className='font-semibold ml-1'>{this.shortName(item.siswa.nama)}</p>
                               <div className='flex'>
                                 <p className='ml-3 font-medium '>Nominal:</p>
                                 <p className='font-semibold ml-1'>{item.jumlah_bayar}</p>

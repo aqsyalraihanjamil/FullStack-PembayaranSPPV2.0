@@ -57,13 +57,12 @@ export default class Entri extends Component {
 
   
 
-  getDetailKelas = (id) => {
-    let url = base_url + "/kelas/" + id;
+  getDetailSiswa = (id) => {
+    let url = base_url + "/siswa/" + id;
     axios
       .get(url, this.headerConfig())
       .then((response) => {
-        this.setState({ angkatan: response.data[0].angkatan });
-        console.log(this.state.angkatan);
+        this.setState({ tunggakan: response.data[0].tunggakan });
       })
       .catch((error) => {
         if (error.response) {
@@ -120,7 +119,7 @@ export default class Entri extends Component {
       jumlah_bayar: this.state.jumlah_bayar,
     };
     let url = base_url + "/pembayaran";
-    if (this.state.jumlah_bayar < this.state.tunggakan) {
+    if (this.state.jumlah_bayar <= this.state.tunggakan) {
       axios
         .post(url, form, this.headerConfig())
         .then((response) => {

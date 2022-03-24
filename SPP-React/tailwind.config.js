@@ -92,6 +92,14 @@ module.exports = {
       },
       opacity: {
         '15': '.15',
+      },
+      minWidth: {
+        'normal': '500px',
+        'card': '150px',
+
+      },
+      minHeight: {
+        '400' : '400px'
       }
     },
   },
