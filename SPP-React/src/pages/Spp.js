@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
+import { Table, TableHeader, TableCell, TableBody, DataTableCell } from '@david.kucsai/react-pdf-table'
 import Sidebar from "../components/Sidebar";
 import { ReactComponent as Search } from "../assets/siswa/Search.svg";
 import { ReactComponent as Edit } from "../assets/siswa/Edit.svg";
@@ -7,6 +9,7 @@ import { ReactComponent as Exit } from "../assets/siswa/Exit.svg";
 import { ReactComponent as Plus } from "../assets/siswa/Plus.svg";
 import { ReactComponent as ArrowLeft } from "../assets/siswa/ArrowLeft.svg";
 import { ReactComponent as ArrowRight } from "../assets/siswa/ArrowRight.svg";
+import { ReactComponent as Paper } from "../assets/siswa/Paper.svg";
 import { base_url } from "../config";
 import axios from "axios";
 export default class Spp extends Component {
@@ -217,14 +220,48 @@ export default class Spp extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
+
+
   render() {
     const { showingEdit, filterSpp, page } = this.state;
+    const MyDoc = () => (
+      <Document>
+        <Page>
+          <Table
+            data={this.state.filterSpp}
+          >
+            <TableHeader>
+              <TableCell>
+                ID
+              </TableCell>
+              <TableCell>
+                Angkatan
+              </TableCell>
+              <TableCell>
+                Tahun
+              </TableCell>
+              <TableCell>
+                Nominal
+              </TableCell>
+            </TableHeader>
+            <TableBody>
+              <DataTableCell getContent={(r) => r.id_spp} />
+              <DataTableCell getContent={(r) => r.angkatan} />
+              <DataTableCell getContent={(r) => r.tahun} />
+              <DataTableCell getContent={(r) => r.nominal} />
+            </TableBody>
+          </Table>
+        </Page>
+      </Document>
+    )
     return (
       <div>
         <Sidebar />
         <div>
           <div className="xl:pl-76 h-screen xl:pt-20 pt-16 w-screen bg-grey-eee overflow-hidden ">
             <div className="p-6 md:p-8 h-full">
+
+
               <div className="flex gap-4">
                 <div className="h-12 lg:h-14 bg-white w-full xl:w-1/3  rounded-xl shadow-md border-purple-light border-2 border-opacity-80">
                   {/* Searcher */}
@@ -300,6 +337,9 @@ export default class Spp extends Component {
                             <Plus className="h-1/3 md:h-2/3 w-1/5 ml-0" />
                           </button>
                           <div className="ml-auto mr-0 flex h-full items-center gap-2">
+                            <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
+                              {({ blob, url, loading, error }) => (loading ? 'Loading...' : <><p>Print Page</p> <Paper className="mb-0.5" /></>)}
+                            </PDFDownloadLink>
                             {this.state.page > 1 ? (
                               <button
                                 className="cursor-pointer"
