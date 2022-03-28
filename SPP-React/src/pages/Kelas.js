@@ -152,7 +152,7 @@ export default class Kelas extends Component {
   searching = (ev) => {
     this.setState({ page: 1 });
     if (ev.keyCode === 13) {
-      let searchText = this.state.search;
+      let searchText = this.state.search.toLowerCase();
       let temp = this.state.kelas;
       console.log(searchText)
       let filter = "";
@@ -160,7 +160,7 @@ export default class Kelas extends Component {
         this.getKelas();
       } else {
         filter = temp.filter((item) => {
-          return item.angkatan === parseInt(searchText) || item.id_kelas === searchText || item.jurusan.toLowerCase() === searchText || item.nama_kelas.toLowerCase().split(" ").includes(searchText);
+          return item.angkatan === parseInt(searchText) || item.id_kelas === parseInt(searchText) || item.jurusan.toLowerCase() === searchText || item.nama_kelas.toLowerCase().split(" ").includes(searchText);
         });
       }
       if (filter.length === 0 && searchText !== "") {

@@ -96,10 +96,18 @@ module.exports = {
       minWidth: {
         'normal': '500px',
         'card': '150px',
-
+        '550' : '550px',
+        '300' : '300px'
       },
       minHeight: {
-        '400' : '400px'
+        '400' : '400px',
+        '300' : '300px'
+      },
+      maxHeight: {
+        '300' : '300px'
+      },
+      maxWidth: {
+        '300' : '300px'
       }
     },
   },
