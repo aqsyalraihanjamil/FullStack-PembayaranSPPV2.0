@@ -13,7 +13,7 @@ export default class Entri extends Component {
       tunggakan: 0,
       action: "",
       id_pembayaran: 0,
-      id_petugas: 0,
+      id_petugas: JSON.parse(localStorage.getItem('admin')).id_petugas,
       nisn: "",
       tgl_bayar: "",
       bulan_dibayar: "",
@@ -55,7 +55,7 @@ export default class Entri extends Component {
       });
   };
 
-  
+
 
   getDetailSiswa = (id) => {
     let url = base_url + "/siswa/" + id;
@@ -124,6 +124,7 @@ export default class Entri extends Component {
         .post(url, form, this.headerConfig())
         .then((response) => {
           window.alert(response.data.message);
+          window.location.reload()
         })
         .catch((error) => console.log(error));
     } else {
@@ -145,7 +146,7 @@ export default class Entri extends Component {
     this.getPetugas();
   }
   render() {
-    const { siswa, petugas } = this.state;
+    const { siswa } = this.state;
     return (
       <div>
         <Sidebar />
@@ -187,15 +188,9 @@ export default class Entri extends Component {
                           this.setState({ id_petugas: ev.target.value });
                         }}
                         className="form-select w-full mt-1 text-gray-900 h-10 bg-gray-50  py-1 rounded-md border focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 px-2"
-                        required
+                        required disabled
                       >
-                        <option selected="selected">-</option>
-                        {petugas &&
-                          petugas.map((item, index) => (
-                            <option value={item.id_petugas}>
-                              {item.id_petugas} - {item.nama_petugas}
-                            </option>
-                          ))}
+                        <option value={this.state.id_petugas}>{this.state.id_petugas} - {JSON.parse(localStorage.getItem('admin')).nama_petugas}</option>
                       </select>
                     </div>
                     <div className="font-body space-y-2">
@@ -249,7 +244,7 @@ export default class Entri extends Component {
                           required
                         />
                         <input
-                          className=" block relative w-1/2 border border-gray-300 bg-gray-200 text-gray-900 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light"
+                          className=" block relative w-1/2 border border-gray-300 bg-gray-50 text-gray-900 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light"
                           type="number"
                           value={this.state.tunggakan}
                           disabled

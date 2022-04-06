@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
+import { PDFDownloadLink, Document, Page, Text } from '@react-pdf/renderer'
 import { Table, TableHeader, TableCell, TableBody, DataTableCell } from '@david.kucsai/react-pdf-table'
 import Sidebar from "../components/Sidebar";
 import { ReactComponent as Search } from "../assets/siswa/Search.svg";
@@ -16,6 +16,7 @@ export default class Spp extends Component {
   constructor() {
     super();
     this.state = {
+      name: '',
       showingDetail: false,
       showingEdit: false,
       token: "",
@@ -226,7 +227,10 @@ export default class Spp extends Component {
     const { showingEdit, filterSpp, page } = this.state;
     const MyDoc = () => (
       <Document>
-        <Page>
+        <Page style={{ padding: 10 }}>
+          <Text style={{ textAlign: "center", paddingBottom: 10 }}>Tabel SPP</Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Admin: {JSON.parse(localStorage.getItem('admin')).nama_petugas}</Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Tanggal: {new Date(Date.now()).toLocaleString('id-ID')}</Text>
           <Table
             data={this.state.filterSpp}
           >
@@ -260,8 +264,6 @@ export default class Spp extends Component {
         <div>
           <div className="xl:pl-76 h-screen xl:pt-20 pt-16 w-screen bg-grey-eee overflow-hidden ">
             <div className="p-6 md:p-8 h-full">
-
-
               <div className="flex gap-4">
                 <div className="h-12 lg:h-14 bg-white w-full xl:w-1/3  rounded-xl shadow-md border-purple-light border-2 border-opacity-80">
                   {/* Searcher */}
@@ -337,7 +339,7 @@ export default class Spp extends Component {
                             <Plus className="h-1/3 md:h-2/3 w-1/5 ml-0" />
                           </button>
                           <div className="ml-auto mr-0 flex h-full items-center gap-2">
-                            <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
+                            <PDFDownloadLink document={<MyDoc />} fileName="Tabel SPP.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
                               {({ blob, url, loading, error }) => (loading ? 'Loading...' : <><p>Print Page</p> <Paper className="mb-0.5" /></>)}
                             </PDFDownloadLink>
                             {this.state.page > 1 ? (
@@ -412,7 +414,7 @@ export default class Spp extends Component {
                         <input
                           className=" block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light"
                           placeholder="Angkatan"
-                          type="text"
+                          type="number"
                           value={this.state.angkatan}
                           onChange={(ev) => this.setState({ angkatan: ev.target.value })}
                           required
@@ -423,7 +425,7 @@ export default class Spp extends Component {
                         <input
                           className=" block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light"
                           placeholder="Tahun"
-                          type="text"
+                          type="number"
                           value={this.state.tahun}
                           onChange={(ev) => this.setState({ tahun: ev.target.value })}
                           required
@@ -434,7 +436,7 @@ export default class Spp extends Component {
                         <input
                           className=" block relative w-full border border-gray-300 bg-gray-50 text-gray-900 placeholder-grey-666 p-2 h-10 rounded-md focus:outline-none focus:border-purple-light"
                           placeholder="Nominal"
-                          type="text"
+                          type="number"
                           value={this.state.nominal}
                           onChange={(ev) => this.setState({ nominal: ev.target.value })}
                           required

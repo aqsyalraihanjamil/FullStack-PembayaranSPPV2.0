@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Sidebar from "../components/Sidebar";
-import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
+import { PDFDownloadLink, Document, Page, Text } from '@react-pdf/renderer'
 import { Table, TableHeader, TableCell, TableBody, DataTableCell } from '@david.kucsai/react-pdf-table'
 import { ReactComponent as Search } from "../assets/siswa/Search.svg";
 import { ReactComponent as Edit } from "../assets/siswa/Edit.svg";
@@ -225,16 +225,16 @@ export default class Kelas extends Component {
     const { showingEdit, filter, page } = this.state;
     const MyDoc = () => (
       <Document>
-        <Page size="A5">
+        <Page style={{ padding: 10 }}>
+          <Text style={{ textAlign: "center", paddingBottom: 10 }}>Tabel Kelas </Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Admin: {JSON.parse(localStorage.getItem('admin')).nama_petugas}</Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Tanggal: {new Date(Date.now()).toLocaleString('id-ID')}</Text>
           <Table
-            data={this.state.filter} 
+            data={this.state.filter}
           >
             <TableHeader>
               <TableCell>
                 ID
-              </TableCell>
-              <TableCell>
-                Nama Kelas
               </TableCell>
               <TableCell>
                 Angkatan
@@ -245,7 +245,6 @@ export default class Kelas extends Component {
             </TableHeader>
             <TableBody>
               <DataTableCell getContent={(r) => r.id_kelas} />
-              <DataTableCell getContent={(r) => r.nama_kelas} />
               <DataTableCell getContent={(r) => r.angkatan} />
               <DataTableCell getContent={(r) => r.jurusan} />
             </TableBody>
@@ -335,7 +334,7 @@ export default class Kelas extends Component {
                             <Plus className="h-1/3 md:h-2/3 w-1/5 ml-0" />
                           </button>
                           <div className="ml-auto mr-0 flex h-full items-center gap-2">
-                           <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
+                           <PDFDownloadLink document={<MyDoc />} fileName="Tabel Kelas.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
                               {({ blob, url, loading, error }) => (loading ? 'Loading...' : <><p>Print Page</p> <Paper className="mb-0.5" /></>)}
                             </PDFDownloadLink>
                             {this.state.page > 1 ? (

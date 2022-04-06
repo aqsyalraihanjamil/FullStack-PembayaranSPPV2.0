@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Sidebar from "../components/Sidebar";
-import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
+import { PDFDownloadLink, Document, Page, Text } from "@react-pdf/renderer";
 import { Table, TableHeader, TableCell, TableBody, DataTableCell } from "@david.kucsai/react-pdf-table";
 import { ReactComponent as Search } from "../assets/siswa/Search.svg";
 import { ReactComponent as Edit } from "../assets/siswa/Edit.svg";
@@ -233,13 +233,26 @@ export default class Petugas extends Component {
     const { showingEdit, filter, page } = this.state;
     const MyDoc = () => (
       <Document>
-        <Page size="A5">
-          <Table data={this.state.filter}>
+        <Page style={{ padding: 10 }}>
+          <Text style={{ textAlign: "center", paddingBottom: 10 }}>Tabel Petugas </Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Admin: {JSON.parse(localStorage.getItem('admin')).nama_petugas}</Text>
+          <Text style={{ textAlign: "left", fontSize: 14, paddingBottom: 10 }}>Tanggal: {new Date(Date.now()).toLocaleString('id-ID')}</Text>
+          <Table
+            data={this.state.filter}
+          >
             <TableHeader>
-              <TableCell>ID</TableCell>
-              <TableCell>Nama Petugas</TableCell>
-              <TableCell>Username</TableCell>
-              <TableCell>Role</TableCell>
+              <TableCell>
+                ID
+              </TableCell>
+              <TableCell>
+                Nama Siswa
+              </TableCell>
+              <TableCell>
+                Nama Petugas
+              </TableCell>
+              <TableCell>
+                Jumlah Bayar
+              </TableCell>
             </TableHeader>
             <TableBody>
               <DataTableCell getContent={(r) => r.id_petugas} />
@@ -292,32 +305,32 @@ export default class Petugas extends Component {
                   <tbody className="table-row-group h-10/12 justify-center relative border-collapse">
                     {filter
                       ? filter.map((item, index, { length }) => (
-                          <tr className=" font-body text-sm md:text-lg" key={index}>
-                            <div className="table-cell align-middle border-b-2 border-solid border-grey-eee w-1/12">{item.id_petugas}</div>
-                            <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.nama_petugas}</div>
-                            <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.username}</div>
-                            <div className="hidden md:table-cell align-middle border-b-2 border-solid border-grey-eee w-1/12 h-1/12 relative ">
-                              <img className="rounded-full w-14 h-14 absolute left-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2 transform" style={{ "clip-path": "circle()" }} src={image_url + item.image} alt="Siswa" />
+                        <tr className=" font-body text-sm md:text-lg" key={index}>
+                          <div className="table-cell align-middle border-b-2 border-solid border-grey-eee w-1/12">{item.id_petugas}</div>
+                          <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.nama_petugas}</div>
+                          <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.username}</div>
+                          <div className="hidden md:table-cell align-middle border-b-2 border-solid border-grey-eee w-1/12 h-1/12 relative ">
+                            <img className="rounded-full w-14 h-14 absolute left-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2 transform" style={{ "clip-path": "circle()" }} src={image_url + item.image} alt="Siswa" />
+                          </div>
+                          <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.level}</div>
+                          <div className="table-cell align-middle border-b-2 border-solid border-grey-eee  overflow-hidden">
+                            <div className="flex w-full h-full items-center gap-2 lg:gap-4">
+                              <button
+                                className="h-10 w-10  md:h-12 bg-tosca bg-opacity-15 md:w-12 xl:w-1/3 shadow-sm rounded-full items-center flex justify-center"
+                                onClick={() => {
+                                  this.setState({ showingEdit: !showingEdit });
+                                  this.Edit(item);
+                                }}
+                              >
+                                <p className="w-1/2 text-center font-medium xl:inline hidden">Edit</p> <Edit className="w-full h-full p-2.5 md:p-3.5 xl:p-0 xl:h-1/2 xl:w-1/5 xl:ml-2 2xl:ml-0" />
+                              </button>
+                              <button className="h-10 w-10  md:h-12 bg-red-base bg-opacity-15 md:w-12 xl:w-1/3 shadow-sm rounded-full items-center flex justify-center" onClick={() => this.dropSiswa(item)}>
+                                <p className="w-1/2 text-center font-medium xl:inline hidden">Delete</p> <Delete className="w-full h-full p-2.5 md:p-3.5 xl:p-0 xl:h-1/2 xl:w-1/5 xl:ml-4 2xl:ml-0" />
+                              </button>
                             </div>
-                            <div className="table-cell align-middle border-b-2 border-solid border-grey-eee">{item.level}</div>
-                            <div className="table-cell align-middle border-b-2 border-solid border-grey-eee  overflow-hidden">
-                              <div className="flex w-full h-full items-center gap-2 lg:gap-4">
-                                <button
-                                  className="h-10 w-10  md:h-12 bg-tosca bg-opacity-15 md:w-12 xl:w-1/3 shadow-sm rounded-full items-center flex justify-center"
-                                  onClick={() => {
-                                    this.setState({ showingEdit: !showingEdit });
-                                    this.Edit(item);
-                                  }}
-                                >
-                                  <p className="w-1/2 text-center font-medium xl:inline hidden">Edit</p> <Edit className="w-full h-full p-2.5 md:p-3.5 xl:p-0 xl:h-1/2 xl:w-1/5 xl:ml-2 2xl:ml-0" />
-                                </button>
-                                <button className="h-10 w-10  md:h-12 bg-red-base bg-opacity-15 md:w-12 xl:w-1/3 shadow-sm rounded-full items-center flex justify-center" onClick={() => this.dropSiswa(item)}>
-                                  <p className="w-1/2 text-center font-medium xl:inline hidden">Delete</p> <Delete className="w-full h-full p-2.5 md:p-3.5 xl:p-0 xl:h-1/2 xl:w-1/5 xl:ml-4 2xl:ml-0" />
-                                </button>
-                              </div>
-                            </div>
-                          </tr>
-                        ))
+                          </div>
+                        </tr>
+                      ))
                       : null}
                   </tbody>
                   {/* Footer Table Siswa */}
@@ -337,7 +350,7 @@ export default class Petugas extends Component {
                             <Plus className="h-1/3 md:h-2/3 w-1/5 ml-0" />
                           </button>
                           <div className="ml-auto mr-0 flex h-full items-center gap-2">
-                            <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
+                            <PDFDownloadLink document={<MyDoc />} fileName="Tabel Petugas.pdf" className="flex gap-2 bg-grey-eee py-2 px-4 rounded-lg text-base">
                               {({ blob, url, loading, error }) =>
                                 loading ? (
                                   "Loading..."

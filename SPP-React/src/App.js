@@ -9,6 +9,7 @@ import Pembayaran from "./pages/Pembayaran";
 import Kelas from "./pages/Kelas";
 import Spp from "./pages/Spp";
 import Entri from "./pages/Entri";
+import History from "./pages/History";
 
 export default class App extends Component {
   render() {
@@ -24,6 +25,7 @@ export default class App extends Component {
           <Route path="/spp" component={Spp} />
           <Route path="/pembayaran" component={Pembayaran} />
           <Route path="/register" component={Register} />
+          <Route path="/history" component={History} />
         </Switch>
       </div>
     );

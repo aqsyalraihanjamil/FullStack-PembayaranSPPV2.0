@@ -36,23 +36,42 @@ export default class Home extends Component {
   };
 
   setName = () => {
-    let name = JSON.parse(localStorage.getItem("admin"));
-    this.setState({ name: name.nama_petugas });
+    let name = ""
+    if (localStorage.getItem("admin")) {
+      name = JSON.parse(localStorage.getItem("admin"));
+      this.setState({ name: name.nama_petugas });
+    } else {
+      name = JSON.parse(localStorage.getItem("siswa"))
+      this.setState({ name: name.nama })
+    }
+
   };
 
   setFoto = () => {
-    let getid = JSON.parse(localStorage.getItem("admin"));
-    this.setState({ foto: getid.image });
+    let getid = ''
+    if (localStorage.getItem("admin")) {
+      getid = JSON.parse(localStorage.getItem("admin"));
+      this.setState({ foto: getid.image });
+    } else {
+      getid = JSON.parse(localStorage.getItem("siswa"))
+      this.setState({ foto: getid.image });
+    }
   };
 
   setRole = () => {
     let getid = localStorage.getItem("level");
-    this.setState({ level: getid });
+    if (getid) {
+      this.setState({ level: getid });
+    } else {
+      localStorage.setItem('level', "siswa")
+      this.setState({ level: "siswa" })
+    }
   };
 
   Logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("admin");
+    localStorage.removeItem("siswa");
     localStorage.removeItem("level");
     localStorage.removeItem("role");
     window.location = "/login";
@@ -107,48 +126,81 @@ export default class Home extends Component {
                   <div className="items-center justify-center pb-6 hidden xl:inline">
                     <Title2 className=" w-full justify-center h-16" />
                   </div>
-                  <div className="xl:mt-10 mt-6 w-full h-16 ">
-                    <Link to="/entri">
-                      <button className="h-full w-full bg-purple-light rounded-custom drop-shadow-lg">
-                        <div className="p-3 flex justify-center items-center h-full w-full mr-4">
-                          <p className="xl:text-xl text-md font-medium text-white font-body w-5/6 ">Entri Transaksi</p>
-                          <Button className="w-1/6 h-3/4" />
+                  {this.state.level === "admin" || this.state.level === "petugas" ? (
+                    <>
+                      <div className="xl:mt-10 mt-6 w-full h-16 ">
+                        <Link to="/entri">
+                          <button className="h-full w-full bg-purple-light rounded-custom drop-shadow-lg">
+                            <div className="p-3 flex justify-center items-center h-full w-full mr-4">
+                              <p className="xl:text-xl text-md font-medium text-white font-body w-5/6 ">Entri Transaksi</p>
+                              <Button className="w-1/6 h-3/4" />
+                            </div>
+                          </button>
+                        </Link>
+                      </div>
+                      <div className="xl:mt-12 xl:ml-4 mt-8">
+                        <Link to="../">
+                          <div className="flex items-center w-full">
+                            {this.state.path === "/" ? <Dashboard className=" w-1/4 xl:h-8 h-7 mr-2" /> : <DashboardBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                            <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/" ? "text-purple-base" : "text-grey-666")}>Dashboard</p>
+                          </div>
+                        </Link>
+                      </div>
+                      {this.state.level === "admin" ? (<><div className="mt-10 xl:ml-4">
+                        <Link to="/siswa">
+                          <div className="flex items-center w-full">
+                            {this.state.path === "/siswa" ? <Siswa className="w-1/4 xl:h-8 h-7 mr-2" /> : <SiswaBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                            <p className={"font-body w-2/3 xl:text-xl  " + (this.state.path === "/siswa" ? "text-purple-base" : "text-grey-666")}>Siswa</p>
+                          </div>
+                        </Link>
+                      </div>
+                        <div className="mt-10 xl:ml-4">
+                          <Link to="/petugas">
+                            <div className="flex items-center w-full">
+                              {this.state.path === "/petugas" ? <Petugas className="w-1/4 xl:h-8 h-7 mr-2" /> : <PetugasBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                              <p className={"font-body w-2/3 xl:text-xl  " + (this.state.path === "/petugas" ? "text-purple-base" : "text-grey-666")}>Petugas</p>
+                            </div>
+                          </Link>
                         </div>
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="xl:mt-12 xl:ml-4 mt-8">
-                    <Link to="../">
-                      <div className="flex items-center w-full">
-                        {this.state.path === "/" ? <Dashboard className=" w-1/4 xl:h-8 h-7 mr-2" /> : <DashboardBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
-                        <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/" ? "text-purple-base" : "text-grey-666")}>Dashboard</p>
+                        <div className="mt-10 xl:ml-4">
+                          <Link to="/pembayaran">
+                            <div className="flex items-center w-full">
+                              {this.state.path === "/pembayaran" ? <Pembayaran className="w-1/4 xl:h-8 h-7 mr-2" /> : <PembayaranBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                              <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/pembayaran" ? "text-purple-base" : "text-grey-666")}>Pembayaran</p>
+                            </div>
+                          </Link>
+                        </div>
+                      </>
+                      ) :
+                        <div className="mt-10 xl:ml-4">
+                          <Link to="/pembayaran">
+                            <div className="flex items-center w-full">
+                              {this.state.path === "/pembayaran" ? <Pembayaran className="w-1/4 xl:h-8 h-7 mr-2" /> : <PembayaranBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                              <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/pembayaran" ? "text-purple-base" : "text-grey-666")}>Pembayaran</p>
+                            </div>
+                          </Link>
+                        </div>}
+                    </>
+                  ) : (
+                    <>
+                      <div className="xl:mt-12 xl:ml-4 mt-8">
+                        <Link to="../">
+                          <div className="flex items-center w-full">
+                            {this.state.path === "/" ? <Dashboard className=" w-1/4 xl:h-8 h-7 mr-2" /> : <DashboardBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                            <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/" ? "text-purple-base" : "text-grey-666")}>Dashboard</p>
+                          </div>
+                        </Link>
                       </div>
-                    </Link>
-                  </div>
-                  <div className="mt-10 xl:ml-4">
-                    <Link to="/siswa">
-                      <div className="flex items-center w-full">
-                        {this.state.path === "/siswa" ? <Siswa className="w-1/4 xl:h-8 h-7 mr-2" /> : <SiswaBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
-                        <p className={"font-body w-2/3 xl:text-xl  " + (this.state.path === "/siswa" ? "text-purple-base" : "text-grey-666")}>Siswa</p>
+                      <div className="mt-10 xl:ml-4">
+                        <Link to="/history">
+                          <div className="flex items-center w-full">
+                            {this.state.path === "/history" ? <Pembayaran className="w-1/4 xl:h-8 h-7 mr-2" /> : <PembayaranBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
+                            <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/history" ? "text-purple-base" : "text-grey-666")}>History</p>
+                          </div>
+                        </Link>
                       </div>
-                    </Link>
-                  </div>
-                  <div className="mt-10 xl:ml-4">
-                    <Link to="/petugas">
-                      <div className="flex items-center w-full">
-                        {this.state.path === "/petugas" ? <Petugas className="w-1/4 xl:h-8 h-7 mr-2" /> : <PetugasBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
-                        <p className={"font-body w-2/3 xl:text-xl  " + (this.state.path === "/petugas" ? "text-purple-base" : "text-grey-666")}>Petugas</p>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="mt-10 xl:ml-4">
-                    <Link to="/pembayaran">
-                      <div className="flex items-center w-full">
-                        {this.state.path === "/pembayaran" ? <Pembayaran className="w-1/4 xl:h-8 h-7 mr-2" /> : <PembayaranBlack className="w-1/4 xl:h-8 h-7 mr-2" />}
-                        <p className={"font-body w-2/3 xl:text-xl " + (this.state.path === "/pembayaran" ? "text-purple-base" : "text-grey-666")}>Pembayaran</p>
-                      </div>
-                    </Link>
-                  </div>
+                    </>
+                  )}
                 </div>
               </div>
             )}
@@ -157,7 +209,7 @@ export default class Home extends Component {
             <div className="xl:pl-72  h-18 flex items-center overflow-hidden w-full bg-white fixed shadow-bottom z-10">
               <div className="flex w-full items-center">
                 {this.state.path === "/" ? (
-                  <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Welcome, Admin!</p>
+                  <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Welcome, {this.state.level.charAt(0).toUpperCase() + this.state.level.slice(1)}!</p>
                 ) : this.state.path === "/siswa" ? (
                   <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Siswa Page</p>
                 ) : this.state.path === "/petugas" ? (
@@ -168,6 +220,8 @@ export default class Home extends Component {
                   <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Spp Page</p>
                 ) : this.state.path === "/kelas" ? (
                   <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">Kelas Page</p>
+                ) : this.state.path === "/history" ? (
+                  <p className="xl:text-3xl font-body text-purple-base font-medium ml-20">History Page</p>
                 ) : null}
                 <div className="relative ml-auto h-12 w-12">
                   <img src={image_url + this.state.foto} className="h-12 w-12 absolute ml-auto rounded-full" alt="pp" />
